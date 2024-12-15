@@ -1,0 +1,248 @@
+[{
+    "_id": 1,
+    "vin": "1HGCM82633A123456",
+    "marka": "Opel",
+    "model": "Corsa",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2000,
+    "typ": "Sedan",
+    "liczbaDrzwi": 3,
+    "kolor": "Czerwony",
+    "przebieg": 150000,
+    "pojemnoscSilnika": 1400,
+    "historiaSerwisowa": [
+        {
+            "data": "2023-05-10",
+            "opis": "Wymiana oleju",
+            "warsztat": "AutoService Plus"
+        },
+        {
+            "data": "2024-01-15",
+            "opis": "Wymiana hamulców",
+            "warsztat": "MotoFix"
+        }
+    ],
+    "wlasciciele": [
+        {
+            "imie": "Jan",
+            "nazwisko": "Kowalski",
+            "dataZakupu": "2010-06-15",
+            "dataSprzedazy": "2015-12-01"
+        },
+        {
+            "imie": "Adam",
+            "nazwisko": "Nowak",
+            "dataZakupu": "2016-01-02",
+            "dataSprzedazy": null
+        }
+    ]
+},
+
+{
+    "_id": 2,
+    "vin": "2HGCM82633A654321",
+    "marka": "Yamaha",
+    "model": "R1",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2015,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Niebieski",
+    "przebieg": 30000,
+    "historiaSerwisowa": [
+        {
+            "data": "2022-07-20",
+            "opis": "Przegląd techniczny",
+            "warsztat": "MotoExpert"
+        }
+    ],
+    "wlasciciele": [
+        {
+            "imie": "Marek",
+            "nazwisko": "Dąbrowski",
+            "dataZakupu": "2015-09-10",
+            "dataSprzedazy": null
+        }
+    ]
+},
+
+    {
+        "_id": 3,
+        "vin": "3HGCM82633A789012",
+        "marka": "Toyota",
+        "model": "Corolla",
+        "rodzajPaliwa": "Hybryda",
+        "rokProdukcji": 2018,
+        "typ": "Osobowy",
+        "liczbaDrzwi": 5,
+        "kolor": "Biały",
+        "przebieg": 60000,
+        "pojemnoscSilnika": 1800,
+        "historiaSerwisowa": [
+            {
+                "data": "2021-03-15",
+                "opis": "Wymiana filtrów",
+                "warsztat": "GreenCar Service"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Anna",
+                "nazwisko": "Wiśniewska",
+                "dataZakupu": "2018-06-20",
+                "dataSprzedazy": null
+            }
+        ]
+    },
+    {
+        "_id": 4,
+        "vin": "4HGCM82633A890123",
+        "marka": "Ford",
+        "model": "Focus",
+        "rodzajPaliwa": "Benzyna",
+        "rokProdukcji": 2012,
+        "typ": "Osobowy",
+        "liczbaDrzwi": 5,
+        "kolor": "Czarny",
+        "przebieg": 120000,
+        "pojemnoscSilnika": 1600,
+        "historiaSerwisowa": [
+            {
+                "data": "2020-10-10",
+                "opis": "Wymiana sprzęgła",
+                "warsztat": "AutoFix Center"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Tomasz",
+                "nazwisko": "Kozłowski",
+                "dataZakupu": "2015-02-14",
+                "dataSprzedazy": "2022-08-01"
+            },
+            {
+                "imie": "Paweł",
+                "nazwisko": "Zieliński",
+                "dataZakupu": "2022-08-15",
+                "dataSprzedazy": null
+            }
+        ]
+    },
+    {
+        "_id": 5,
+        "vin": "5HGCM82633A901234",
+        "marka": "BMW",
+        "model": "X5",
+        "rodzajPaliwa": "Diesel",
+        "rokProdukcji": 2019,
+        "typ": "SUV",
+        "liczbaDrzwi": 5,
+        "kolor": "Szary",
+        "przebieg": 45000,
+        "pojemnoscSilnika": 3000,
+        "historiaSerwisowa": [
+            {
+                "data": "2023-04-10",
+                "opis": "Serwis klimatyzacji",
+                "warsztat": "BMW Service Center"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Joanna",
+                "nazwisko": "Nowicka",
+                "dataZakupu": "2019-07-20",
+                "dataSprzedazy": null
+            }
+        ]
+    },
+    {
+        "_id": 6,
+        "vin": "6HGCM82633A012345",
+        "marka": "Kawasaki",
+        "model": "Ninja ZX-6R",
+        "rodzajPaliwa": "Benzyna",
+        "rokProdukcji": 2021,
+        "typ": "Motor",
+        "pojemnoscSilnika": 636,
+        "kolor": "Zielony",
+        "przebieg": 8000,
+        "historiaSerwisowa": [
+            {
+                "data": "2023-06-18",
+                "opis": "Wymiana opon",
+                "warsztat": "MotoStyle"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Karol",
+                "nazwisko": "Sobczak",
+                "dataZakupu": "2021-05-01",
+                "dataSprzedazy": null
+            }
+        ]
+    },
+    {
+        "_id": 7,
+        "vin": "7HGCM82633A567890",
+        "marka": "Mercedes",
+        "model": "Sprinter",
+        "rodzajPaliwa": "Diesel",
+        "rokProdukcji": 2016,
+        "typ": "Dostawczy",
+        "liczbaDrzwi": 4,
+        "kolor": "Srebrny",
+        "przebieg": 200000,
+        "pojemnoscSilnika": 2200,
+        "historiaSerwisowa": [
+            {
+                "data": "2022-12-05",
+                "opis": "Wymiana rozrządu",
+                "warsztat": "TruckService"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Grzegorz",
+                "nazwisko": "Kamiński",
+                "dataZakupu": "2016-09-12",
+                "dataSprzedazy": "2023-01-25"
+            },
+            {
+                "imie": "Łukasz",
+                "nazwisko": "Bartosz",
+                "dataZakupu": "2023-02-01",
+                "dataSprzedazy": null
+            }
+        ]
+    },
+    {
+        "_id": 8,
+        "vin": "8HGCM82633A678901",
+        "marka": "Audi",
+        "model": "A3",
+        "rodzajPaliwa": "Benzyna",
+        "rokProdukcji": 2020,
+        "typ": "Osobowy",
+        "liczbaDrzwi": 3,
+        "kolor": "Czerwony",
+        "przebieg": 30000,
+        "pojemnoscSilnika": 2000,
+        "historiaSerwisowa": [
+            {
+                "data": "2023-01-11",
+                "opis": "Wymiana klocków hamulcowych",
+                "warsztat": "Audi Center"
+            }
+        ],
+        "wlasciciele": [
+            {
+                "imie": "Ewa",
+                "nazwisko": "Górska",
+                "dataZakupu": "2020-03-20",
+                "dataSprzedazy": null
+            }
+        ]
+    }
+]

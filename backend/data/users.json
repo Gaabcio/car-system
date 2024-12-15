@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "login": "admin@serwis.pl",
+    "password": "admin123",
+    "rola": "administrator"
+  },
+  {
+    "_id": 2,
+    "login": "ity92937@msssg.com",
+    "password": "gxiklpkl",
+    "rola": "user",
+    "name": "Yanusj"
+  },
+  {
+    "_id": 3,
+    "login": "stach@ds2.pl",
+    "password": "dsdauhsdfuihsdfbui",
+    "rola": "user",
+    "name": "Dżanuszowski"
+  }
+]

@@ -1,0 +1,21 @@
+/* frontend/src/components/Footer.css */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    position: relative; /* Stopka jest ustawiona normalnie w dokumencie */
+}
+
+/* kontener dla całej aplikacji */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Zapewnia, że kontener ma wysokość co najmniej 100vh */
+}
+
+/* Kontener dla treści strony */
+.app-content {
+    flex: 1; /* Zapewnia, że treść zajmie wszystkie dostępne miejsce */
+}
