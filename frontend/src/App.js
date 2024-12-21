@@ -18,8 +18,8 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />
-                        {/*<Route path="/dashboard" element={<Dashboard />} /> /!*bez tokenu*!/*/}
-                        <Route path="/dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} /> {/*z tokenem*/}
+                        <Route path="/dashboard" element={<Dashboard />} /> {/*bez tokenu*/}
+                        {/*<Route path="/dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} /> /!*z tokenem*!/*/}
                     </Routes>
                 </div>
                 <Footer />

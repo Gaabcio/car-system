@@ -33,10 +33,11 @@
 .search-input,
 .search-select {
   padding: 0.75rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 5px;
   min-width: 200px;
-  font-size: 14px; /* Ustalenie spójnego rozmiaru czcionki */
+  font-size: 14px;
+  /* Ustalenie spójnego rozmiaru czcionki */
   height: 42px;
 }
 
@@ -45,13 +46,16 @@
 .search-input-group {
   display: flex;
   gap: 1rem;
-  max-height: 200px; /* Ograniczenie wysokości listy */
+  max-height: 200px;
+  /* Ograniczenie wysokości listy */
   overflow-y: auto;
 }
 
 
 /* Search Button */
-.search-button {
+.search-button,
+.dashboard,
+.reset-button {
   background-color: #17a2b8;
   color: white;
   border: none;
@@ -59,10 +63,13 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 14px; /* Spójny rozmiar czcionki */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki */
 }
 
-.search-button:hover {
+.search-button:hover,
+.dashboard:hover,
+.reset-button:hover {
   background-color: #138496;
 }
 
@@ -90,7 +97,8 @@
   align-items: center;
   gap: 0.5rem;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  font-size: 14px; /* Spójny rozmiar czcionki */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki */
 }
 
 .filter-button.active {
@@ -164,7 +172,8 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  font-size: 14px; /* Spójny rozmiar czcionki */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki */
 }
 
 .details-button:hover {
@@ -193,7 +202,8 @@
   justify-content: space-between;
   width: 100%;
   transition: background-color 0.3s ease;
-  font-size: 14px; /* Spójny rozmiar czcionki z innymi polami */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki z innymi polami */
 }
 
 .fuel-type-label:hover {
@@ -213,15 +223,18 @@
   width: 100%;
   z-index: 10;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 14px; /* Spójny rozmiar czcionki */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki */
 }
 
 .fuel-type-options label {
   display: flex;
-  align-items: flex-start; /* Ustawienie tekstu pod checkboxem */
+  align-items: flex-start;
+  /* Ustawienie tekstu pod checkboxem */
   padding: 0.5rem 0;
   cursor: pointer;
-  font-size: 14px; /* Spójny rozmiar czcionki */
+  font-size: 14px;
+  /* Spójny rozmiar czcionki */
 }
 
 .fuel-type-options input {
@@ -234,17 +247,20 @@
 
 /* Fuel Type Icon */
 .fuel-type-icon {
-  font-size: 16px; /* Dostosowanie rozmiaru ikony */
+  font-size: 16px;
+  /* Dostosowanie rozmiaru ikony */
   color: #333;
   transition: transform 0.3s ease-in-out;
 }
 
 .fuel-type-icon.open {
-  transform: rotate(180deg); /* Obrót ikony po otwarciu */
+  transform: rotate(180deg);
+  /* Obrót ikony po otwarciu */
 }
 
 .fuel-count {
-  background-color: rgb(136, 221, 224); /* Kolor tła */
+  background-color: rgb(136, 221, 224);
+  /* Kolor tła */
   color: white;
   width: 20px;
   height: 20px;
@@ -254,5 +270,3 @@
   line-height: 20px;
   margin-left: 40px;
 }
-
-

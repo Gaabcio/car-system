@@ -7,8 +7,8 @@
   },
   {
     "_id": 2,
-    "login": "ity92937@msssg.com",
-    "password": "gxiklpkl",
+    "login": "ngb66928@kisoq.com",
+    "password": "p14luddb",
     "rola": "user",
     "name": "Yanusj"
   },
@@ -18,5 +18,12 @@
     "password": "dsdauhsdfuihsdfbui",
     "rola": "user",
     "name": "Dżanuszowski"
+  },
+  {
+    "_id": 4,
+    "login": "cos@cos.pl",
+    "password": "haslo",
+    "rola": "user",
+    "name": "ksdksd"
   }
 ]

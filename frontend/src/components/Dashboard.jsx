@@ -3,13 +3,19 @@ import { IoChevronDown, IoCloseCircleOutline } from "react-icons/io5";
 import "./Dashboard.css";
 import Select from 'react-select';
 import CreatableSelect from 'react-select/creatable';
-import Modal from 'react-modal';
+
+//TODO: Dodaj formularz dodawania pojazdu
+import AddVehicleForm from './AddVehicleForm';
+import VehicleDetailsModal from "./VehicleDetailsModal";
+
+
 
 const Dashboard = () => {
 
   const [pojazdy, setPojazdy] = useState([]); // Stan dla pojazdów
   const [filteredPojazdy, setFilteredPojazdy] = useState([]); // Stan dla przefiltrowanych pojazdów
-  const [selectedVehicle, setSelectedVehicle] = useState(null); // Stan dla wybranego pojazdu
+  //const [selectedVehicle, setSelectedVehicle] = useState(null); // Stan dla wybranego pojazdu
+
 
   useEffect(() => {
     fetch('http://localhost:5000/api/pojazdy')
@@ -30,9 +36,9 @@ const Dashboard = () => {
   const [mileageFrom, setMileageFrom] = useState(""); // Stan dla "Przebieg od"
   const [mileageTo, setMileageTo] = useState(""); // Stan dla "Przebieg do"
   const [fuelTypes, setFuelTypes] = useState({
-    benzyna: true,
-    diesel: true,
-    gaz: true,
+    benzyna: false,
+    diesel: false,
+    gaz: false,
   });
   const [showFuelOptions, setShowFuelOptions] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState(""); // Wybrana marka
@@ -41,6 +47,41 @@ const Dashboard = () => {
   const [activeFilter, setActiveFilter] = useState("all"); // Stan dla aktywnego filtra
   const fuelTypeRef = useRef(null); // Referencja do kontenera opcji rodzaju paliwa
   const [selectedBodyType, setSelectedBodyType] = useState(""); // Wybrany typ nadwozia
+
+
+
+
+  //dodajemy stan dla formularza
+
+  //const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedVehicle, setSelectedVehicle] = useState(null);
+
+  const handleShowDetails = (vehicle) => {
+    setSelectedVehicle(vehicle);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedVehicle(null);
+  };
+
+  const handleUpdateVehicle = (updatedVehicle) => {
+    console.log("Zaktualizowane dane pojazdu:", updatedVehicle);
+    // W przyszłości dodaj funkcję aktualizacji danych w bazie
+  };
+
+
+  // const openModal = () => {
+  //   setIsModalOpen(true);
+  // };
+
+  // const closeModal = () => {
+  //   setIsModalOpen(false);
+  // };
+  const [showVehicleForm, setShowVehicleForm] = useState(false);
+
+  const handleOpenForm = () => setShowVehicleForm(true);
+  const handleCloseForm = () => setShowVehicleForm(false);
+
 
   // Obsługa kliknięcia poza rodzaj paliwa
   useEffect(() => {
@@ -213,535 +254,541 @@ const Dashboard = () => {
     setFilteredPojazdy(filtered);
   };
 
+
+  // Funkcja resetująca formularz
+  const handleResetForm = () => {
+    setYearFrom(null);
+    setYearTo(null);
+    setMileageFrom(null);
+    setMileageTo(null);
+    setFuelTypes({ benzyna: false, diesel: false, gaz: false });
+    setSelectedBrand(null);
+    setSelectedModel(null);
+    setSelectedBodyType(null);
+    setFilteredPojazdy(pojazdy);
+  };
+
+
   return (
-    <div className="dashboard-container">
-      <div className="dashboard-content">
+      <div className="dashboard-container">
+        <div className="dashboard-content">
+          <h1 className="dashboard-title">Wyszukaj Pojazd</h1>
+          <div className="search-bar">
+            <input
+                type="text"
+                placeholder="Wprowadź słowo kluczowe"
+                className="search-input"
+            />
+            <input type="text" placeholder="VIN" className="search-input" id="vin"/>
 
-        {/* Modal dla szczegółów pojazdu */}
-        {selectedVehicle && (
-            <Modal
-                isOpen={!!selectedVehicle}
-                onRequestClose={() => setSelectedVehicle(null)}
-                contentLabel="Szczegóły pojazdu"
-            >
-              <h2>{`${selectedVehicle.marka} ${selectedVehicle.model} ${selectedVehicle.rokProdukcji}`}</h2>
-              <p>Typ: {selectedVehicle.typ}</p>
-              <p>VIN: {selectedVehicle.vin}</p>
-              <p>Kolor: {selectedVehicle.kolor}</p>
-              <p>Przebieg: {selectedVehicle.przebieg} km</p>
-              <p>Pojemność silnika: {selectedVehicle.pojemnoscSilnika} cm³</p>
-              <h3>Historia serwisowa</h3>
-              <ul>
-                {selectedVehicle.historiaSerwisowa.map((serwis, index) => (
-                    <li key={index}>
-                      {serwis.data}: {serwis.opis} ({serwis.warsztat})
-                    </li>
-                ))}
-              </ul>
-              <h3>Właściciele</h3>
-              <ul>
-                {selectedVehicle.wlasciciele.map((wlasciciel, index) => (
-                    <li key={index}>
-                      {wlasciciel.imie} {wlasciciel.nazwisko} (Zakup: {wlasciciel.dataZakupu}, Sprzedaż: {wlasciciel.dataSprzedazy || 'N/A'})
-                    </li>
-                ))}
-              </ul>
-              <button onClick={() => setSelectedVehicle(null)}>Zamknij</button>
-            </Modal>
-        )}
+            <div className="search-input-group">
+              {/* Rok produkcji od */}
+              <div className="select-wrapper">
+                <Select
+                    className="basic-single"
+                    classNamePrefix="select"
+                    value={yearFrom}
+                    onChange={handleYearFromChange}
+                    options={yearOptions}
+                    placeholder="Rok produkcji od"
+                    isClearable
+                    isSearchable
+                    menuPortalTarget={document.body}
+                    styles={{
+                      menuPortal: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                      }),
+                      control: (base, state) => ({
+                        ...base,
+                        width: '200px',
+                        borderRadius: '5px',
+                        boxShadow: 'none',
+                        height: '42px',
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                        '&:hover': {
+                          borderColor: state.isFocused ? 'black' : '#ccc',
+                        },
+                        borderWidth: '2px',
+                        textAlign: 'left',
+                      }),
+                      clearIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                      dropdownIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                    }}
+                />
+              </div>
 
-        <h1 className="dashboard-title">Wyszukaj Pojazd</h1>
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Wprowadź słowo kluczowe"
-            className="search-input"
-          />
-          <input type="text" placeholder="VIN" className="search-input" id="vin"/>
+              {/* Rok produkcji do */}
+              <div className="select-wrapper">
+                <Select
+                    className="basic-single"
+                    classNamePrefix="select"
+                    value={yearTo}
+                    onChange={handleYearToChange}
+                    options={yearOptions}
+                    placeholder="Rok produkcji do"
+                    isClearable
+                    isSearchable
+                    menuPortalTarget={document.body}
+                    styles={{
+                      menuPortal: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                      }),
+                      control: (base, state) => ({
+                        ...base,
+                        width: '200px',
+                        borderRadius: '5px',
+                        boxShadow: 'none',
+                        height: '42px',
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                        '&:hover': {
+                          borderColor: state.isFocused ? 'black' : '#ccc',
+                        },
+                        borderWidth: '2px',
+                        textAlign: 'left',
+                      }),
+                      clearIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                      dropdownIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                    }}
+                />
+              </div>
+            </div>
 
-          <div className="search-input-group">
-            {/* Rok produkcji od */}
+            <div className="search-input-group">
+              {/* Przebieg od */}
+              <div className="select-wrapper">
+                <CreatableSelect
+                    className="basic-single"
+                    classNamePrefix="select"
+                    value={mileageFrom}
+                    onChange={handleMileageFromChange}
+                    onCreateOption={(inputValue) => handleCustomValue(inputValue, setMileageFrom)}
+                    options={mileageOptions.map((mileage) => ({
+                      label: (
+                          <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                            <span>{formatMileage(mileage)}</span>
+                            <span style={{marginLeft: 'auto', paddingLeft: '10px'}}>km</span>
+                          </div>
+                      ),
+                      value: mileage,
+                    }))}
+                    placeholder="Przebieg od (km)"
+                    isClearable
+                    isSearchable={true}
+                    formatCreateLabel={() => ''} // Usuń napis "Create"
+                    menuPortalTarget={document.body}
+                    styles={{
+                      menuPortal: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                      }),
+                      control: (base, state) => ({
+                        ...base,
+                        width: '200px',
+                        borderRadius: '5px',
+                        boxShadow: 'none',
+                        height: '42px',
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                        '&:hover': {
+                          borderColor: state.isFocused ? 'black' : '#ccc',
+                        },
+                        borderWidth: '2px',
+                        textAlign: 'left',
+                      }),
+                      clearIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                      dropdownIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                    }}
+                />
+              </div>
+
+              {/* Przebieg do */}
+              <div className="select-wrapper">
+                <CreatableSelect
+                    className="basic-single"
+                    classNamePrefix="select"
+                    value={mileageTo}
+                    onChange={handleMileageToChange}
+                    onCreateOption={(inputValue) => handleCustomValue(inputValue, setMileageTo)}
+                    options={mileageOptions.map((mileage) => ({
+                      label: (
+                          <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                            <span>{formatMileage(mileage)}</span>
+                            <span style={{marginLeft: 'auto', paddingLeft: '10px'}}>km</span>
+                          </div>
+                      ),
+                      value: mileage,
+                    }))}
+                    placeholder="Przebieg do (km)"
+                    isClearable
+                    isSearchable={true}
+                    formatCreateLabel={() => ''} // Usuń napis "Create"
+                    menuPortalTarget={document.body}
+                    styles={{
+                      menuPortal: (base) => ({
+                        ...base,
+                        zIndex: 9999,
+                      }),
+                      control: (base, state) => ({
+                        ...base,
+                        width: '200px',
+                        borderRadius: '5px',
+                        boxShadow: 'none',
+                        height: '42px',
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                        '&:hover': {
+                          borderColor: state.isFocused ? 'black' : '#ccc',
+                        },
+                        borderWidth: '2px',
+                        textAlign: 'left',
+                      }),
+                      clearIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                      dropdownIndicator: (base) => ({
+                        ...base,
+                        color: 'darkgray',
+                        ':hover': {
+                          color: 'black',
+                        },
+                      }),
+                    }}
+                />
+              </div>
+            </div>
+
+
+            {/* Rodzaj paliwa */}
+            <div className="fuel-type-container" ref={fuelTypeRef}>
+              <div
+                  className="fuel-type-label"
+                  onClick={() => setShowFuelOptions(!showFuelOptions)}
+              >
+                Rodzaj paliwa
+                {selectedFuelCount > 0 && (
+                    <div className="fuel-count">
+                      {selectedFuelCount}
+                    </div>
+                )}
+                {/* Zmieniamy ikonę w zależności od tego, czy paliwa zostały wybrane */}
+                {selectedFuelCount > 0 ? (
+                    <IoCloseCircleOutline
+                        className="fuel-type-icon"
+                        onClick={handleClearFuelSelection}
+                    />
+                ) : (
+                    <IoChevronDown
+                        className={`fuel-type-icon ${showFuelOptions ? "open" : ""}`}
+                    />
+                )}
+              </div>
+              {showFuelOptions && (
+                  <div className="fuel-type-options">
+                    <label>
+                      <input
+                          type="checkbox"
+                          name="all"
+                          checked={fuelTypes.benzyna && fuelTypes.diesel && fuelTypes.gaz}
+                          onChange={handleFuelChange}
+                      />
+                      Wszystkie rodzaje paliwa
+                    </label>
+                    <label>
+                      <input
+                          type="checkbox"
+                          name="benzyna"
+                          checked={fuelTypes.benzyna}
+                          onChange={handleFuelChange}
+                      />
+                      Benzyna
+                    </label>
+                    <label>
+                      <input
+                          type="checkbox"
+                          name="diesel"
+                          checked={fuelTypes.diesel}
+                          onChange={handleFuelChange}
+                      />
+                      Diesel
+                    </label>
+                    <label>
+                      <input
+                          type="checkbox"
+                          name="gaz"
+                          checked={fuelTypes.gaz}
+                          onChange={handleFuelChange}
+                      />
+                      Gaz
+                    </label>
+                  </div>
+              )}
+            </div>
+
+            {/* Marka pojazdu */}
             <div className="select-wrapper">
               <Select
-                className="basic-single"
-                classNamePrefix="select"
-                value={yearFrom}
-                onChange={handleYearFromChange}
-                options={yearOptions}
-                placeholder="Rok produkcji od"
-                isClearable
-                isSearchable
-                menuPortalTarget={document.body}
-                styles={{
-                  menuPortal: (base) => ({
-                    ...base,
-                    zIndex: 9999,
-                  }),
-                  control: (base, state) => ({
-                    ...base,
-                    width: '200px',
-                    borderRadius: '5px',
-                    boxShadow: 'none',
-                    height: '42px',
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                    '&:hover': {
+                  className="basic-single"
+                  classNamePrefix="select"
+                  value={selectedBrand ? {value: selectedBrand, label: selectedBrand} : null}
+                  onChange={handleBrandChange}
+                  options={pojazdy.map(pojazd => ({value: pojazd.marka, label: pojazd.marka}))} // Ustaw marki z danych
+                  placeholder="Marka pojazdu"
+                  isClearable
+                  isSearchable
+                  menuPortalTarget={document.body}
+                  styles={{
+                    menuPortal: (base) => ({
+                      ...base,
+                      zIndex: 9999,
+                    }),
+                    control: (base, state) => ({
+                      ...base,
+                      width: '200px',
+                      borderRadius: '5px',
+                      boxShadow: 'none',
+                      height: '42px',
                       borderColor: state.isFocused ? 'black' : '#ccc',
-                    },
-                    borderWidth: '2px',
-                    textAlign: 'left',
-                  }),
-                  clearIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                  dropdownIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                }}
+                      '&:hover': {
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                      },
+                      borderWidth: '2px',
+                      textAlign: 'left',
+                    }),
+                    clearIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                    dropdownIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                  }}
               />
             </div>
 
-            {/* Rok produkcji do */}
+            {/* Model pojazdu */}
             <div className="select-wrapper">
               <Select
-                className="basic-single"
-                classNamePrefix="select"
-                value={yearTo}
-                onChange={handleYearToChange}
-                options={yearOptions}
-                placeholder="Rok produkcji do"
-                isClearable
-                isSearchable
-                menuPortalTarget={document.body}
-                styles={{
-                  menuPortal: (base) => ({
-                    ...base,
-                    zIndex: 9999,
-                  }),
-                  control: (base, state) => ({
-                    ...base,
-                    width: '200px',
-                    borderRadius: '5px',
-                    boxShadow: 'none',
-                    height: '42px',
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                    '&:hover': {
+                  className="basic-single"
+                  classNamePrefix="select"
+                  value={selectedModel ? {value: selectedModel, label: selectedModel} : null}
+                  onChange={handleModelChange}
+                  options={models}//
+                  placeholder="Model pojazdu"
+                  isClearable
+                  isSearchable
+                  isDisabled={!selectedBrand}  // Disabled, jeśli marka nie jest wybrana
+                  menuPortalTarget={document.body}
+                  styles={{
+                    menuPortal: (base) => ({
+                      ...base,
+                      zIndex: 9999,
+                    }),
+                    control: (base, state) => ({
+                      ...base,
+                      width: '200px',
+                      borderRadius: '5px',
+                      boxShadow: 'none',
+                      height: '42px',
                       borderColor: state.isFocused ? 'black' : '#ccc',
-                    },
-                    borderWidth: '2px',
-                    textAlign: 'left',
-                  }),
-                  clearIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                  dropdownIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                }}
+                      '&:hover': {
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                      },
+                      borderWidth: '2px',
+                      textAlign: 'left',
+                    }),
+                    clearIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                    dropdownIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                  }}
               />
             </div>
-          </div>
 
-          <div className="search-input-group">
-            {/* Przebieg od */}
+            {/* Typ nadwozia */}
             <div className="select-wrapper">
-              <CreatableSelect
-                className="basic-single"
-                classNamePrefix="select"
-                value={mileageFrom}
-                onChange={handleMileageFromChange}
-                onCreateOption={(inputValue) => handleCustomValue(inputValue, setMileageFrom)}
-                options={mileageOptions.map((mileage) => ({
-                  label: (
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                      <span>{formatMileage(mileage)}</span>
-                      <span style={{ marginLeft: 'auto', paddingLeft: '10px' }}>km</span>
-                    </div>
-                  ),
-                  value: mileage,
-                }))}
-                placeholder="Przebieg od (km)"
-                isClearable
-                isSearchable={true}
-                formatCreateLabel={() => ''} // Usuń napis "Create"
-                menuPortalTarget={document.body}
-                styles={{
-                  menuPortal: (base) => ({
-                    ...base,
-                    zIndex: 9999,
-                  }),
-                  control: (base, state) => ({
-                    ...base,
-                    width: '200px',
-                    borderRadius: '5px',
-                    boxShadow: 'none',
-                    height: '42px',
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                    '&:hover': {
+              <Select
+                  className="basic-single"
+                  classNamePrefix="select"
+                  value={selectedBodyType ? {value: selectedBodyType, label: selectedBodyType} : null}
+                  onChange={handleBodyTypeChange}
+                  options={[
+                    {value: "Sedan", label: "Sedan"},
+                    {value: "Hatchback", label: "Hatchback"},
+                    {value: "SUV", label: "SUV"},
+                    {value: "Coupe", label: "Coupe"},
+                  ]}
+                  placeholder="Typ nadwozia"
+                  isClearable
+                  isSearchable
+                  menuPortalTarget={document.body}
+                  styles={{
+                    menuPortal: (base) => ({
+                      ...base,
+                      zIndex: 9999,
+                    }),
+                    control: (base, state) => ({
+                      ...base,
+                      width: '200px',
+                      borderRadius: '5px',
+                      boxShadow: 'none',
+                      height: '42px',
                       borderColor: state.isFocused ? 'black' : '#ccc',
-                    },
-                    borderWidth: '2px',
-                    textAlign: 'left',
-                  }),
-                  clearIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                  dropdownIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                }}
+                      '&:hover': {
+                        borderColor: state.isFocused ? 'black' : '#ccc',
+                      },
+                      borderWidth: '2px',
+                      textAlign: 'left',
+                    }),
+                    clearIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                    dropdownIndicator: (base) => ({
+                      ...base,
+                      color: 'darkgray',
+                      ':hover': {
+                        color: 'black',
+                      },
+                    }),
+                  }}
               />
             </div>
 
-            {/* Przebieg do */}
-            <div className="select-wrapper">
-              <CreatableSelect
-                className="basic-single"
-                classNamePrefix="select"
-                value={mileageTo}
-                onChange={handleMileageToChange}
-                onCreateOption={(inputValue) => handleCustomValue(inputValue, setMileageTo)}
-                options={mileageOptions.map((mileage) => ({
-                  label: (
-                    <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-                      <span>{formatMileage(mileage)}</span>
-                      <span style={{ marginLeft: 'auto', paddingLeft: '10px' }}>km</span>
-                    </div>
-                  ),
-                  value: mileage,
-                }))}
-                placeholder="Przebieg do (km)"
-                isClearable
-                isSearchable={true}
-                formatCreateLabel={() => ''} // Usuń napis "Create"
-                menuPortalTarget={document.body}
-                styles={{
-                  menuPortal: (base) => ({
-                    ...base,
-                    zIndex: 9999,
-                  }),
-                  control: (base, state) => ({
-                    ...base,
-                    width: '200px',
-                    borderRadius: '5px',
-                    boxShadow: 'none',
-                    height: '42px',
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                    '&:hover': {
-                      borderColor: state.isFocused ? 'black' : '#ccc',
-                    },
-                    borderWidth: '2px',
-                    textAlign: 'left',
-                  }),
-                  clearIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                  dropdownIndicator: (base) => ({
-                    ...base,
-                    color: 'darkgray',
-                    ':hover': {
-                      color: 'black',
-                    },
-                  }),
-                }}
-              />
-            </div>
-          </div>
 
+            <button className="search-button" onClick={handleSearch}>Wyszukaj</button>
+            <button className="reset-button" onClick={handleResetForm}>Wyczyść formularz</button>
 
-
-          {/* Rodzaj paliwa */}
-          <div className="fuel-type-container" ref={fuelTypeRef}>
-            <div
-              className="fuel-type-label"
-              onClick={() => setShowFuelOptions(!showFuelOptions)}
-            >
-              Rodzaj paliwa
-              {selectedFuelCount > 0 && (
-                <div className="fuel-count">
-                  {selectedFuelCount}
+            <button onClick={handleOpenForm} className="dashboard">Dodaj Pojazd</button>
+            {showVehicleForm && (
+                <div id="add-vehicle-modal-root">
+                  <AddVehicleForm onClose={handleCloseForm}/>
                 </div>
-              )}
-              {/* Zmieniamy ikonę w zależności od tego, czy paliwa zostały wybrane */}
-              {selectedFuelCount > 0 ? (
-                <IoCloseCircleOutline
-                  className="fuel-type-icon"
-                  onClick={handleClearFuelSelection}
-                />
-              ) : (
-                <IoChevronDown
-                  className={`fuel-type-icon ${showFuelOptions ? "open" : ""}`}
-                />
-              )}
-            </div>
-            {showFuelOptions && (
-              <div className="fuel-type-options">
-                <label>
-                  <input
-                    type="checkbox"
-                    name="all"
-                    checked={fuelTypes.benzyna && fuelTypes.diesel && fuelTypes.gaz}
-                    onChange={handleFuelChange}
-                  />
-                  Wszystkie rodzaje paliwa
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="benzyna"
-                    checked={fuelTypes.benzyna}
-                    onChange={handleFuelChange}
-                  />
-                  Benzyna
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="diesel"
-                    checked={fuelTypes.diesel}
-                    onChange={handleFuelChange}
-                  />
-                  Diesel
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    name="gaz"
-                    checked={fuelTypes.gaz}
-                    onChange={handleFuelChange}
-                  />
-                  Gaz
-                </label>
-              </div>
             )}
+
           </div>
 
-          {/* Marka pojazdu */}
-          <div className="select-wrapper">
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              value={selectedBrand ? { value: selectedBrand, label: selectedBrand } : null}
-              onChange={handleBrandChange}
-              options={pojazdy.map(pojazd => ({ value: pojazd.marka, label: pojazd.marka }))} // Ustaw marki z danych
-              placeholder="Marka pojazdu"
-              isClearable
-              isSearchable
-              menuPortalTarget={document.body}
-              styles={{
-                menuPortal: (base) => ({
-                  ...base,
-                  zIndex: 9999,
-                }),
-                control: (base, state) => ({
-                  ...base,
-                  width: '200px',
-                  borderRadius: '5px',
-                  boxShadow: 'none',
-                  height: '42px',
-                  borderColor: state.isFocused ? 'black' : '#ccc',
-                  '&:hover': {
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                  },
-                  borderWidth: '2px',
-                  textAlign: 'left',
-                }),
-                clearIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-                dropdownIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-              }}
-            />
+          {/* Filter Buttons */}
+          <div className="search-results-header">
+            <span className="sorted-by">Sortuj:</span>
+            <button
+                className={`filter-button ${activeFilter === "all" ? "active" : ""}`}
+                onClick={() => handleFilterClick("all")}
+            >
+              Wszystkie <span className="badge">{filteredPojazdy.length}</span>
+            </button>
+            <button
+                className={`filter-button ${activeFilter === "ready" ? "active" : ""}`}
+                onClick={() => handleFilterClick("ready")}
+            >
+              Gotowe <span className="badge">423</span>
+            </button>
+            <button
+                className={`filter-button ${activeFilter === "not-ready" ? "active" : ""}`}
+                onClick={() => handleFilterClick("not-ready")}
+            >
+              Niegotowe <span className="badge">77</span>
+            </button>
           </div>
 
-          {/* Model pojazdu */}
-          <div className="select-wrapper">
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              value={selectedModel ? { value: selectedModel, label: selectedModel } : null}
-              onChange={handleModelChange}
-              options={models}//
-              placeholder="Model pojazdu"
-              isClearable
-              isSearchable
-              isDisabled={!selectedBrand}  // Disabled, jeśli marka nie jest wybrana
-              menuPortalTarget={document.body}
-              styles={{
-                menuPortal: (base) => ({
-                  ...base,
-                  zIndex: 9999,
-                }),
-                control: (base, state) => ({
-                  ...base,
-                  width: '200px',
-                  borderRadius: '5px',
-                  boxShadow: 'none',
-                  height: '42px',
-                  borderColor: state.isFocused ? 'black' : '#ccc',
-                  '&:hover': {
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                  },
-                  borderWidth: '2px',
-                  textAlign: 'left',
-                }),
-                clearIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-                dropdownIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-              }}
-            />
+          {/* Wyniki wyszukiwania */}
+
+          <div className="search-results">
+            {/*{vehicles.map((vehicle) => (*/}
+            {/*    <div className="vehicle-card" key={vehicle.id}>*/}
+            {/*      <div className="vehicle-icon">🚗</div>*/}
+            {/*      <h3 className="vehicle-title">{`${vehicle.year} ${vehicle.brand} ${vehicle.model}`}</h3>*/}
+            {/*      <p className="vehicle-vin">VIN: {vehicle.vin}</p>*/}
+            {/*      <button className="details-button" onClick={() => handleShowDetails(vehicle)}>Zobacz szczegóły</button>*/}
+            {/*    </div>*/}
+            {/*))}*/}
+
+            {filteredPojazdy.map((pojazd) => (
+                <div className="vehicle-card" key={pojazd._id}>
+                  <div className="vehicle-icon">🚗</div>
+                  <h3 className="vehicle-title">{`${pojazd.rokProdukcji} ${pojazd.marka} ${pojazd.model}`}</h3>
+                  <button className="details-button" onClick={() => handleShowDetails(pojazd)}>Zobacz szczegóły</button>
+                </div>
+            ))}
+
           </div>
 
-          {/* Typ nadwozia */}
-          <div className="select-wrapper">
-            <Select
-              className="basic-single"
-              classNamePrefix="select"
-              value={selectedBodyType ? { value: selectedBodyType, label: selectedBodyType } : null}
-              onChange={handleBodyTypeChange}
-              options={[
-                { value: "Sedan", label: "Sedan" },
-                { value: "Hatchback", label: "Hatchback" },
-                { value: "SUV", label: "SUV" },
-                { value: "Coupe", label: "Coupe" },
-              ]}
-              placeholder="Typ nadwozia"
-              isClearable
-              isSearchable
-              menuPortalTarget={document.body}
-              styles={{
-                menuPortal: (base) => ({
-                  ...base,
-                  zIndex: 9999,
-                }),
-                control: (base, state) => ({
-                  ...base,
-                  width: '200px',
-                  borderRadius: '5px',
-                  boxShadow: 'none',
-                  height: '42px',
-                  borderColor: state.isFocused ? 'black' : '#ccc',
-                  '&:hover': {
-                    borderColor: state.isFocused ? 'black' : '#ccc',
-                  },
-                  borderWidth: '2px',
-                  textAlign: 'left',
-                }),
-                clearIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-                dropdownIndicator: (base) => ({
-                  ...base,
-                  color: 'darkgray',
-                  ':hover': {
-                    color: 'black',
-                  },
-                }),
-              }}
-            />
-          </div>
-
-          <button className="search-button" onClick={handleSearch}>Wyszukaj</button>
-        </div>
-
-        {/* Filter Buttons */}
-        <div className="search-results-header">
-          <span className="sorted-by">Sortuj:</span>
-          <button
-            className={`filter-button ${activeFilter === "all" ? "active" : ""}`}
-            onClick={() => handleFilterClick("all")}
-          >
-            Wszystkie <span className="badge">{filteredPojazdy.length}</span>
-          </button>
-          <button
-            className={`filter-button ${activeFilter === "ready" ? "active" : ""}`}
-            onClick={() => handleFilterClick("ready")}
-          >
-            Gotowe <span className="badge">423</span>
-          </button>
-          <button
-            className={`filter-button ${activeFilter === "not-ready" ? "active" : ""}`}
-            onClick={() => handleFilterClick("not-ready")}
-          >
-            Niegotowe <span className="badge">77</span>
-          </button>
-        </div>
-
-        {/* Wyniki wyszukiwania */}
-        <div className="search-results">
-
-          {filteredPojazdy.map((pojazd) => (
-              <div className="vehicle-card" key={pojazd._id}>
-                <div className="vehicle-icon">🚗</div>
-                <h3 className="vehicle-title">{`${pojazd.rokProdukcji} ${pojazd.marka} ${pojazd.model}`}</h3>
-                <button className="details-button" onClick={() => setSelectedVehicle(pojazd)}>Zobacz szczegóły</button>
-              </div>
-          ))}
+          {selectedVehicle && (
+              <VehicleDetailsModal
+                  vehicle={selectedVehicle}
+                  onClose={handleCloseDetails}
+                  onUpdate={handleUpdateVehicle}
+              />
+          )}
 
 
-          {/*{Array(8).fill(0).map((_, index) => (*/}
-          {/*  <div className="vehicle-card" key={index}>*/}
-          {/*    <div className="vehicle-icon">🚗</div>*/}
-          {/*    <h3 className="vehicle-title">2021 BMW 335i</h3>*/}
-          {/*    /!*<p className="vehicle-vin">VIN: 07B03JNDGOE89956</p>*!/*/}
-          {/*    <button className="details-button">Zobacz szczegóły</button>*/}
-          {/*  </div>*/}
-          {/*))}*/}
+
+          {/*<div className="search-results">*/}
+
+
+          {/*</div>*/}
+
         </div>
       </div>
-    </div>
   );
 };
 

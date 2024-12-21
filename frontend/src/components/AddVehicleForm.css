@@ -1,0 +1,349 @@
+/* AddVehicleForm.css */
+
+/* Kontener modalu */
+#add-vehicle-modal-root .add-vehicle-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Półprzezroczyste tło */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+#add-vehicle-modal-root .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 90%;
+    /* Szerokość 90% ekranu */
+    max-width: 700px;
+    /* Maksymalna szerokość */
+    height: auto;
+    /* Wysokość dopasowuje się do zawartości */
+    max-height: 90vh;
+    /* Maksymalna wysokość to 90% wysokości ekranu */
+    overflow-y: auto;
+    /* Dodaje przewijanie, jeśli zawartość jest za wysoka */
+    text-align: left;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Nagłówek formularza - wyrównanie w poziomie z przyciskiem X */
+#add-vehicle-modal-root .modal-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+    /* Pozwala h2 zająć dostępne miejsce */
+}
+
+/* Przyciski i tytuł w jednej linii */
+#add-vehicle-modal-root .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Stylowanie przycisków */
+#add-vehicle-modal-root button {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    /* Ujednolicenie czcionki */
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Przycisk "X" w prawym górnym rogu */
+/* #add-vehicle-modal-root .close-btn {
+    font-size: 30px;
+    color: #333;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+#add-vehicle-modal-root .close-btn:hover {
+    color: #17a2b8;
+} */
+
+/* przycisk X */
+/* Nowe style dla przycisku zamykania z efektem LED */
+#add-vehicle-modal-root .close {
+    --size: 50px;
+    --border-size: 3px;
+    --border-color: #ffffff;
+    /* Kolor LED */
+    --speed: 0.85s;
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    background: #17a2b8;
+    /* Kolor LED jako tło */
+    border-radius: 50%;
+    box-shadow: 0 0 20px -5px rgba(23, 162, 184, 0.7);
+    /* Zwiększony cień w kolorze LED */
+    transition: 0.25s ease-in-out;
+    cursor: pointer;
+    animation: fade-in var(--speed) ease-out 0.25s both;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+/* Animacja okręgu (obręczy) */
+#add-vehicle-modal-root .close .circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    /* Okrąg ma być pod liniami X */
+}
+
+#add-vehicle-modal-root .close .circle path {
+    stroke: var(--border-color);
+    fill: none;
+    stroke-width: calc(var(--border-size) / 2);
+    stroke-linecap: round;
+    animation: progress var(--speed) ease-out 0.25s both;
+}
+
+/* Linie w kształcie X w środku przycisku */
+#add-vehicle-modal-root .close span {
+    display: block;
+    width: calc((var(--size) / 4) - 2px);
+    height: var(--border-size);
+    background: var(--border-color);
+    box-shadow: 0 0 10px rgba(23, 162, 184, 0.7);
+    /* Zwiększony cień w kolorze LED */
+    border-radius: 20px;
+    position: absolute;
+    --padding: calc(var(--size) / 3);
+    transition: 0.25s ease-in-out;
+    animation: slide-in var(--speed) ease-in-out 0.25s both;
+    z-index: 2;
+    /* Linie X zawsze nad okręgiem */
+}
+
+/* Pozycjonowanie linii X */
+#add-vehicle-modal-root .close span:nth-child(1) {
+    top: calc(var(--padding) - (var(--border-size) / 2));
+    left: var(--padding);
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
+
+.close span:nth-child(2) {
+    top: calc(var(--padding) - (var(--border-size) / 2));
+    right: var(--padding);
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+
+#add-vehicle-modal-root .close span:nth-child(3) {
+    bottom: calc(var(--padding) - (var(--border-size) / 2));
+    left: var(--padding);
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+}
+
+#add-vehicle-modal-root .close span:nth-child(4) {
+    bottom: calc(var(--padding) - (var(--border-size) / 2));
+    right: var(--padding);
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+
+/* Stylizacja hover z efektem rozświetlenia */
+#add-vehicle-modal-root .close:hover {
+    background: #138496;
+    /* Ciemniejszy odcień LED */
+    box-shadow: 0 0 30px 5px rgba(23, 162, 184, 0.8);
+    /* Efekt świecenia wokół przycisku */
+}
+
+#add-vehicle-modal-root .close:hover span {
+    width: calc(var(--size) / 4);
+}
+
+/* Animacja wejścia przycisku */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+/* Animacja dla okręgu (kółka postępu) */
+@keyframes progress {
+    from {
+        stroke-dasharray: 0 100;
+    }
+}
+
+/* Animacja przesuwania linii X */
+@keyframes slide-in {
+    from {
+        width: 0;
+    }
+}
+
+
+
+
+
+/* Formularz i pola tekstowe */
+#add-vehicle-modal-root form {
+    display: flex;
+    flex-wrap: wrap;
+    /* Umożliwia zawijanie wierszy */
+    gap: 1.5rem;
+    /* Odstęp między polami */
+}
+
+#add-vehicle-modal-root form label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    width: 48%;
+    /* Szerokość pól (około połowa) */
+}
+
+#add-vehicle-modal-root form input,
+form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    transition: border-color 0.3s ease;
+}
+
+#add-vehicle-modal-root form input:focus,
+form select:focus {
+    border-color: #888;
+    /* Podświetlenie przy focusie */
+    outline: none;
+}
+
+#add-vehicle-modal-root .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+    width: 100%;
+    height: 56px;
+}
+
+#add-vehicle-modal-root .cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    width: 32%;
+    border-radius: 10px;
+}
+
+#add-vehicle-modal-root .submit-btn {
+    background-color: #17a2b8;
+    color: white;
+    width: 32%;
+    border-radius: 10px;
+}
+
+#add-vehicle-modal-root .reset-btn {
+    background-color: #a9aeaf;
+    color: white;
+    width: 32%;
+    border-radius: 10px;
+}
+
+/* Hover effects dla przycisków */
+#add-vehicle-modal-root .cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+#add-vehicle-modal-root .submit-btn:hover {
+    background-color: #138496;
+}
+
+#add-vehicle-modal-root .reset-btn:hover {
+    background-color: #9a9d9e;
+}
+
+/* Responsywność dla mniejszych ekranów */
+@media screen and (max-width: 768px) {
+    #add-vehicle-modal-root .modal-content {
+        width: 95%;
+        /* Szerokość 95% dla małych ekranów */
+        max-width: none;
+        /* Brak maksymalnej szerokości */
+    }
+
+    #add-vehicle-modal-root .modal-content h2 {
+        font-size: 1.5rem;
+        /* Zmniejszenie czcionki nagłówka */
+    }
+
+    #add-vehicle-modal-root button {
+        padding: 0.5rem 1rem;
+        /* Zmniejszenie przycisków */
+    }
+
+    #add-vehicle-modal-root .form-buttons {
+        flex-direction: column;
+        /* Przycisk anuluj i dodaj pojazd w pionie */
+        gap: 10px;
+        /* Odstęp między przyciskami */
+    }
+
+    #add-vehicle-modal-root form label {
+        width: 100%;
+        /* Na małych ekranach pola mają pełną szerokość */
+    }
+
+    #add-vehicle-modal-root form input,
+    form select {
+        font-size: 12px;
+        /* Zmniejszenie czcionki w polach */
+    }
+}
+
+/* Responsywność dla bardzo małych ekranów */
+@media screen and (max-width: 480px) {
+    #add-vehicle-modal-root .modal-content {
+        padding: 1rem;
+        /* Zmniejszenie paddingu w mniejszych ekranach */
+    }
+
+    #add-vehicle-modal-root .modal-header {
+        flex-direction: column;
+        /* Tytuł i przycisk X w pionie */
+        align-items: flex-start;
+    }
+
+    #add-vehicle-modal-root .close-btn {
+        font-size: 18px;
+        /* Zmniejszenie przycisku X */
+    }
+
+    #add-vehicle-modal-root .modal-content h2 {
+        font-size: 1.25rem;
+        /* Jeszcze mniejsza czcionka nagłówka */
+    }
+}
