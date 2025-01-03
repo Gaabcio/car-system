@@ -1,94 +1,36 @@
-/* Overlay dla modal */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    overflow-y: auto;
-    /* Dla przewijania na mniejszych ekranach */
+.modal-content h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 2rem;
+    /* Pozwala h2 zająć dostępne miejsce */
 }
 
-/* Nagłówek */
-h2 {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #333;
-    text-align: center;
-}
-
-/* Główna treść modala */
-.modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-height: 90%;
-    /* Maksymalna wysokość dla mniejszych ekranów */
-    overflow-y: auto;
-    /* Przewijanie w przypadku długiej treści */
-}
-
-/* Formularz */
-.modal-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    /* Dwa pola w jednym wierszu */
-    gap: 16px;
-    /* Odstęp między kolumnami i wierszami */
-}
-
-/* Etykiety formularza */
-.modal-form label {
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9rem;
-    color: #555;
-}
-
-/* Pola formularza */
-.modal-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 0.9rem;
-    transition: border-color 0.3s ease;
-    min-height: 41px;
-    margin-top: 3px;
-}
-
-.modal-form input:focus {
-    border-color: #17a2b8;
-    outline: none;
-}
-
-/* Sekcja przycisków */
-.modal-buttons {
-    grid-column: span 2;
-    /* Przyciski zajmują cały wiersz */
+/* Przyciski i tytuł w jednej linii */
+.modal-header {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+}
+
+/* Stylowanie przycisków */
+.modal-header button {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
-.hbutton,
-.remove-button {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-}
-
+/* Przyciski w oknie modalnym */
 .modal-buttons button {
     padding: 10px 20px;
-    border: none;
     border-radius: 4px;
     font-size: 0.9rem;
     cursor: pointer;
@@ -96,104 +38,132 @@ h2 {
     min-width: 109px;
 }
 
-.modal-buttons button:first-child {
-    background-color: #17a2b8;
-    color: #fff;
-}
-
-.modal-buttons button:first-child:hover {
-    background-color: #138496;
-    transform: scale(1.05);
-}
-
-.modal-buttons button:last-child {
-    background-color: #6c757d;
-    color: #fff;
-}
-
-.modal-buttons button:last-child:hover {
-    background-color: #5a6268;
-    transform: scale(1.05);
-}
-
-.cancel-button,
-.remove-button {
-    background-color: #dc3545;
-    color: #fff;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
+/* Nowe style dla przycisku zamykania z efektem LED */
+.close {
+    --size: 45px;
+    --border-size: 3px;
+    --border-color: #ffffff;
+    --speed: 0.85s;
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    background: #17a2b8;
+    /* Kolor LED */
+    border-radius: 50%;
+    box-shadow: 0 0 20px -5px rgba(23, 162, 184, 0.7);
+    /* Zwiększony cień w kolorze LED */
+    transition: 0.25s ease-in-out;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    animation: fade-in var(--speed) ease-out 0.25s both;
+    overflow: hidden;
+    /* margin-bottom: 20px; */
+    margin-top: -30px;
 }
 
-.cancel-button:hover,
-.remove-button:hover {
-    background-color: #c82333;
-    transform: scale(1.05);
+/* Animacja okręgu (obręczy) */
+.close .circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 3;
 }
 
-.add-button {
-    background-color: #009124;
-    color: #fff;
-    font-size: 0.9rem;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.close .circle path {
+    stroke: var(--border-color);
+    fill: none;
+    stroke-width: calc(var(--border-size) / 2);
+    stroke-linecap: round;
+    animation: progress var(--speed) ease-out 0.25s both;
 }
 
-.add-button:hover {
-    background-color: #005f18;
-    transform: scale(1.05);
+/* Linie w kształcie X w środku przycisku */
+.close span {
+    display: block;
+    width: calc((var(--size) / 4) - 2px);
+    height: var(--border-size);
+    background: var(--border-color);
+    box-shadow: 0 0 10px rgba(23, 162, 184, 0.7);
+    /* Zwiększony cień w kolorze LED */
+    border-radius: 20px;
+    position: absolute;
+    --padding: calc(var(--size) / 3);
+    transition: 0.25s ease-in-out;
+    animation: slide-in var(--speed) ease-in-out 0.25s both;
+    z-index: 2;
 }
 
+/* Pozycjonowanie linii X */
+.close span:nth-child(1) {
+    top: calc(var(--padding) - (var(--border-size) / 2));
+    left: var(--padding);
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
 
-/* Responsywność */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 90%;
-        /* Zmniejszona szerokość na mniejszych ekranach */
-        max-height: 80%;
-        /* Większa elastyczność wysokości */
+.close span:nth-child(2) {
+    top: calc(var(--padding) - (var(--border-size) / 2));
+    right: var(--padding);
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+
+.close span:nth-child(3) {
+    bottom: calc(var(--padding) - (var(--border-size) / 2));
+    left: var(--padding);
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+}
+
+.close span:nth-child(4) {
+    bottom: calc(var(--padding) - (var(--border-size) / 2));
+    right: var(--padding);
+    transform: rotate(45deg);
+    transform-origin: bottom right;
+}
+
+/* Stylizacja hover z efektem rozświetlenia */
+.close:hover {
+    background: #138496;
+    /* Ciemniejszy odcień LED */
+    box-shadow: 0 0 30px 5px rgba(23, 162, 184, 0.8);
+    /* Efekt świecenia wokół przycisku */
+}
+
+.close:hover span {
+    width: calc(var(--size) / 4);
+}
+
+/* Animacja wejścia przycisku */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
     }
+}
 
-    .modal-form {
-        grid-template-columns: 1fr;
-        /* Jedna kolumna na wiersz */
-        gap: 10px;
-        /* Mniejszy odstęp między polami */
-    }
-
-    h2 {
-        font-size: 1.2rem;
-        /* Zmniejszony rozmiar nagłówka */
+/* Animacja dla okręgu (kółka postępu) */
+@keyframes progress {
+    from {
+        stroke-dasharray: 0 100;
     }
 }
 
-@media (max-width: 480px) {
-
-    .modal-buttons button,
-    .add-button {
-        padding: 8px 16px;
-        /* Zmniejszone przyciski */
-        font-size: 0.8rem;
-        /* Mniejszy tekst na przyciskach */
+/* Animacja przesuwania linii X */
+@keyframes slide-in {
+    from {
+        width: 0;
     }
 }
 
-@media (max-width: 410px) {
-
-    .modal-buttons button,
-    .add-button {
-        padding: 4px 8px;
-        /* Zmniejszone przyciski */
-        font-size: 0.8rem;
-        min-width: 90px;
-    }
+.no-data {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1rem;
+    margin-top: 20px;
 }
+
 
 .modal-content h2 {
     font-size: 2rem;

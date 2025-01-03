@@ -22,12 +22,26 @@
 }
 
 /* Search Bar */
+/* Wyszukiwarka */
 .search-bar {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  /* Mniejszy odstęp, by był spójny */
+  width: 100%;
+  /* Zapewnia pełną szerokość */
+}
+
+/* Kontener na przyciski */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  /* Ustawienie szerokości na 100%, by wymusić nowy wiersz */
+  margin-top: 1rem;
 }
 
 .search-input,
@@ -50,6 +64,7 @@
   /* Ograniczenie wysokości listy */
   overflow-y: auto;
 }
+
 
 
 /* Search Button */
@@ -85,6 +100,8 @@
 .sorted-by {
   font-weight: bold;
 }
+
+
 
 .filter-button {
   padding: 0.5rem 1rem;
@@ -131,6 +148,50 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
+  max-height: calc(2 * 300px + 2rem);
+  /* Wysokość 2 wierszy + odstępy */
+  overflow-y: auto;
+  /* Przewijanie, jeśli więcej elementów */
+  padding: 0.5rem;
+  /* Margines wewnętrzny */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+}
+
+/* Paginacja */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.pagination-button {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  margin: 0 1rem;
+}
+
+.pagination-button:hover {
+  background-color: #138496;
+}
+
+.pagination-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-button:disabled:hover {
+  background-color: #707070;
+  cursor: not-allowed;
 }
 
 .vehicle-card {
@@ -161,7 +222,13 @@
 .vehicle-vin {
   font-size: 0.85rem;
   color: #666;
-  margin-bottom: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.vehicle-registration {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 0.7rem;
 }
 
 .details-button {
@@ -269,4 +336,15 @@
   text-align: center;
   line-height: 20px;
   margin-left: 40px;
+}
+
+
+@media (max-width: 520px) {
+  .search-results-header {
+    flex-direction: column;
+    /* Ułóż przyciski w kolumnie dla węższych ekranów */
+    align-items: center;
+  }
+
+
 }

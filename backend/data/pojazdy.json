@@ -1,46 +1,56 @@
-[{
+[
+  {
     "_id": 1,
     "vin": "1HGCM82633A123456",
+    "numerRejestracyjny": "WY50124",
     "marka": "Opel",
     "model": "Corsa",
     "rodzajPaliwa": "Diesel",
     "rokProdukcji": 2000,
-    "typ": "Sedan",
+    "typ": "Samochód",
     "liczbaDrzwi": 3,
     "kolor": "Czerwony",
     "przebieg": 150000,
     "pojemnoscSilnika": 1400,
     "historiaSerwisowa": [
-        {
-            "data": "2023-05-10",
-            "opis": "Wymiana oleju",
-            "warsztat": "AutoService Plus"
-        },
-        {
-            "data": "2024-01-15",
-            "opis": "Wymiana hamulców",
-            "warsztat": "MotoFix"
-        }
+      {
+        "data": "2023-05-10",
+        "opis": "Wymiana oleju",
+        "warsztat": "MotoFix"
+      },
+      {
+        "data": "2024-01-15",
+        "opis": "Wymiana hamulców",
+        "warsztat": "MotoFix"
+      }
     ],
     "wlasciciele": [
-        {
-            "imie": "Jan",
-            "nazwisko": "Kowalski",
-            "dataZakupu": "2010-06-15",
-            "dataSprzedazy": "2015-12-01"
-        },
-        {
-            "imie": "Adam",
-            "nazwisko": "Nowak",
-            "dataZakupu": "2016-01-02",
-            "dataSprzedazy": null
-        }
+      {
+        "imie": "Jan",
+        "nazwisko": "Kowalski",
+        "dataZakupu": "2010-06-15",
+        "dataSprzedazy": "2015-12-01"
+      },
+      {
+        "imie": "Adam",
+        "nazwisko": "Nowak",
+        "dataZakupu": "2016-01-02",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "Ubezpieczyciel A",
+        "typUbezpieczenia": "OC",
+        "dataRozpoczecia": "",
+        "dataZakonczenia": ""
+      }
     ]
-},
-
-{
+  },
+  {
     "_id": 2,
     "vin": "2HGCM82633A654321",
+    "numerRejestracyjny": "KR98032",
     "marka": "Yamaha",
     "model": "R1",
     "rodzajPaliwa": "Benzyna",
@@ -50,199 +60,924 @@
     "kolor": "Niebieski",
     "przebieg": 30000,
     "historiaSerwisowa": [
-        {
-            "data": "2022-07-20",
-            "opis": "Przegląd techniczny",
-            "warsztat": "MotoExpert"
-        }
+      {
+        "data": "2022-07-20",
+        "opis": "Przegląd techniczny",
+        "warsztat": "MotoExpert"
+      }
     ],
     "wlasciciele": [
-        {
-            "imie": "Marek",
-            "nazwisko": "Dąbrowski",
-            "dataZakupu": "2015-09-10",
-            "dataSprzedazy": null
-        }
+      {
+        "imie": "Marek",
+        "nazwisko": "Dąbrowski",
+        "dataZakupu": "2015-09-10",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 3,
+    "vin": "3HGCM82633A789012",
+    "numerRejestracyjny": "PO34216",
+    "marka": "Toyota",
+    "model": "Corolla",
+    "rodzajPaliwa": "Hybryda",
+    "rokProdukcji": 2018,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 5,
+    "kolor": "Biały",
+    "przebieg": 60000,
+    "pojemnoscSilnika": 1800,
+    "historiaSerwisowa": [
+      {
+        "data": "2021-03-15",
+        "opis": "Wymiana filtrów",
+        "warsztat": "GreenCar Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Anna",
+        "nazwisko": "Wiśniewska",
+        "dataZakupu": "2018-06-20",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 4,
+    "vin": "4HGCM82633A890123",
+    "numerRejestracyjny": "GD74152",
+    "marka": "Ford",
+    "model": "Focus",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2012,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 5,
+    "kolor": "Czarny",
+    "przebieg": 120000,
+    "pojemnoscSilnika": 1600,
+    "historiaSerwisowa": [
+      {
+        "data": "2020-10-10",
+        "opis": "Wymiana sprzęgła",
+        "warsztat": "AutoFix Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Tomasz",
+        "nazwisko": "Kozłowski",
+        "dataZakupu": "2015-02-14",
+        "dataSprzedazy": "2022-08-01"
+      },
+      {
+        "imie": "Paweł",
+        "nazwisko": "Zieliński",
+        "dataZakupu": "2022-08-15",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 5,
+    "vin": "5HGCM82633A901234",
+    "numerRejestracyjny": "LU15389",
+    "marka": "BMW",
+    "model": "X5",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2019,
+    "typ": "SUV",
+    "liczbaDrzwi": 5,
+    "kolor": "Szary",
+    "przebieg": 45000,
+    "pojemnoscSilnika": 3000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-04-10",
+        "opis": "Serwis klimatyzacji",
+        "warsztat": "BMW Service Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Joanna",
+        "nazwisko": "Nowicka",
+        "dataZakupu": "2019-07-20",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 6,
+    "vin": "6HGCM82633A012345",
+    "numerRejestracyjny": "WA54908",
+    "marka": "Kawasaki",
+    "model": "Ninja ZX-6R",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2021,
+    "typ": "Motor",
+    "pojemnoscSilnika": 636,
+    "kolor": "Zielony",
+    "przebieg": 8000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-06-18",
+        "opis": "Wymiana opon",
+        "warsztat": "MotoStyle"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Karol",
+        "nazwisko": "Sobczak",
+        "dataZakupu": "2021-05-01",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 7,
+    "vin": "7HGCM82633A567890",
+    "numerRejestracyjny": "RS28034",
+    "marka": "Mercedes",
+    "model": "Sprinter",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2016,
+    "typ": "Dostawczy",
+    "liczbaDrzwi": 4,
+    "kolor": "Srebrny",
+    "przebieg": 200000,
+    "pojemnoscSilnika": 2200,
+    "historiaSerwisowa": [
+      {
+        "data": "2022-12-05",
+        "opis": "Wymiana rozrządu",
+        "warsztat": "TruckService"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Grzegorz",
+        "nazwisko": "Kamiński",
+        "dataZakupu": "2016-09-12",
+        "dataSprzedazy": "2023-01-25"
+      },
+      {
+        "imie": "Łukasz",
+        "nazwisko": "Bartosz",
+        "dataZakupu": "2023-02-01",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 8,
+    "vin": "8HGCM82633A678901",
+    "numerRejestracyjny": "SW12953",
+    "marka": "Audi",
+    "model": "A3",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2020,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 3,
+    "kolor": "Czerwony",
+    "przebieg": 30000,
+    "pojemnoscSilnika": 2000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-01-11",
+        "opis": "Wymiana klocków hamulcowych",
+        "warsztat": "Audi Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Ewa",
+        "nazwisko": "Górska",
+        "dataZakupu": "2020-03-20",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 9,
+    "vin": "1HGCM82633A678902",
+    "numerRejestracyjny": "OL67492",
+    "marka": "BMW",
+    "model": "X5",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2021,
+    "typ": "SUV",
+    "liczbaDrzwi": 5,
+    "kolor": "Niebieski",
+    "przebieg": 15000,
+    "pojemnoscSilnika": 3000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-05-15",
+        "opis": "Wymiana oleju silnikowego",
+        "warsztat": "BMW Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Adam",
+        "nazwisko": "Kowalski",
+        "dataZakupu": "2021-06-10",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 10,
+    "vin": "2HGCM82633A678903",
+    "numerRejestracyjny": "BI36075",
+    "marka": "Mercedes",
+    "model": "C-Class",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2019,
+    "typ": "Sedan",
+    "liczbaDrzwi": 4,
+    "kolor": "Czarny",
+    "przebieg": 50000,
+    "pojemnoscSilnika": 1800,
+    "historiaSerwisowa": [
+      {
+        "data": "2022-11-05",
+        "opis": "Wymiana opon",
+        "warsztat": "Mercedes-Benz Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Michał",
+        "nazwisko": "Nowak",
+        "dataZakupu": "2019-07-15",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 11,
+    "vin": "3HGCM82633A678904",
+    "numerRejestracyjny": "KA80214",
+    "marka": "Volkswagen",
+    "model": "Golf",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2022,
+    "typ": "Hatchback",
+    "liczbaDrzwi": 5,
+    "kolor": "Szary",
+    "przebieg": 10000,
+    "pojemnoscSilnika": 1400,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-06-25",
+        "opis": "Wymiana filtrów powietrza",
+        "warsztat": "Volkswagen Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Karolina",
+        "nazwisko": "Wiśniewska",
+        "dataZakupu": "2022-08-20",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 12,
+    "vin": "4HGCM82633A678905",
+    "numerRejestracyjny": "WN45230",
+    "marka": "Audi",
+    "model": "Q7",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2018,
+    "typ": "SUV",
+    "liczbaDrzwi": 5,
+    "kolor": "Biały",
+    "przebieg": 80000,
+    "pojemnoscSilnika": 4000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-04-15",
+        "opis": "Wymiana turbosprężarki",
+        "warsztat": "Audi Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Piotr",
+        "nazwisko": "Zieliński",
+        "dataZakupu": "2018-10-01",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 13,
+    "vin": "5HGCM82633A678906",
+    "numerRejestracyjny": "LB90137",
+    "marka": "Toyota",
+    "model": "Corolla",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2023,
+    "typ": "Sedan",
+    "liczbaDrzwi": 4,
+    "kolor": "Zielony",
+    "przebieg": 5000,
+    "pojemnoscSilnika": 1600,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-11-20",
+        "opis": "Wymiana klocków hamulcowych",
+        "warsztat": "Toyota Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Łukasz",
+        "nazwisko": "Kaczmarek",
+        "dataZakupu": "2023-06-15",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 14,
+    "vin": "6HGCM82633A678907",
+    "numerRejestracyjny": "DL25084",
+    "marka": "Ford",
+    "model": "Focus",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2017,
+    "typ": "Hatchback",
+    "liczbaDrzwi": 5,
+    "kolor": "Srebrny",
+    "przebieg": 120000,
+    "pojemnoscSilnika": 2000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-07-05",
+        "opis": "Naprawa układu hamulcowego",
+        "warsztat": "Ford Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Katarzyna",
+        "nazwisko": "Nowakowska",
+        "dataZakupu": "2017-12-01",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 15,
+    "vin": "7HGCM82633A678908",
+    "numerRejestracyjny": "RZ76019",
+    "marka": "Peugeot",
+    "model": "308",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2021,
+    "typ": "Hatchback",
+    "liczbaDrzwi": 5,
+    "kolor": "Pomarańczowy",
+    "przebieg": 25000,
+    "pojemnoscSilnika": 1200,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-09-10",
+        "opis": "Wymiana rozrządu",
+        "warsztat": "Peugeot Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Julia",
+        "nazwisko": "Sienkiewicz",
+        "dataZakupu": "2021-04-10",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 16,
+    "vin": "1HGCM82633A654322",
+    "numerRejestracyjny": "PK54721",
+    "marka": "Honda",
+    "model": "CBR1000RR",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2017,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Czarny",
+    "przebieg": 25000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-05-10",
+        "opis": "Wymiana oleju",
+        "warsztat": "MotoSerwis"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Jan",
+        "nazwisko": "Kowalski",
+        "dataZakupu": "2017-03-15",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 17,
+    "vin": "2HGCM82633A654323",
+    "numerRejestracyjny": "KT45309",
+    "marka": "Suzuki",
+    "model": "GSX-R1000",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2019,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Czerwony",
+    "przebieg": 15000,
+    "historiaSerwisowa": [
+      {
+        "data": "2022-03-25",
+        "opis": "Wymiana opon",
+        "warsztat": "RiderService"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Piotr",
+        "nazwisko": "Nowak",
+        "dataZakupu": "2019-06-05",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 18,
+    "vin": "2HGCM82633A654324",
+    "numerRejestracyjny": "WI84062",
+    "marka": "Kawasaki",
+    "model": "Ninja ZX-10R",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2020,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Zielony",
+    "przebieg": 5000,
+    "historiaSerwisowa": [
+      {
+        "data": "2021-08-10",
+        "opis": "Przegląd techniczny",
+        "warsztat": "KawaMoto"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Tomasz",
+        "nazwisko": "Lewandowski",
+        "dataZakupu": "2020-07-25",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 19,
+    "vin": "3HGCM82633A654325",
+    "numerRejestracyjny": "SB92051",
+    "marka": "BMW",
+    "model": "S1000RR",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2021,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Biały",
+    "przebieg": 8000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-10-15",
+        "opis": "Wymiana płynów eksploatacyjnych",
+        "warsztat": "BMW Motorrad"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Andrzej",
+        "nazwisko": "Zieliński",
+        "dataZakupu": "2021-11-05",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 20,
+    "vin": "4HGCM82633A654326",
+    "numerRejestracyjny": "CZ71346",
+    "marka": "Ducati",
+    "model": "Panigale V4",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2022,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1100,
+    "kolor": "Szary",
+    "przebieg": 3000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-04-10",
+        "opis": "Wymiana łańcucha",
+        "warsztat": "Ducati Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Sebastian",
+        "nazwisko": "Sikora",
+        "dataZakupu": "2022-03-30",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 21,
+    "vin": "5HGCM82633A654327",
+    "numerRejestracyjny": "LU45183",
+    "marka": "Yamaha",
+    "model": "MT-10",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2018,
+    "typ": "Motor",
+    "pojemnoscSilnika": 1000,
+    "kolor": "Srebrny",
+    "przebieg": 18000,
+    "historiaSerwisowa": [
+      {
+        "data": "2022-01-15",
+        "opis": "Wymiana hamulców",
+        "warsztat": "MotoTechnik"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Wojciech",
+        "nazwisko": "Szymański",
+        "dataZakupu": "2018-08-01",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 22,
+    "vin": "6HGCM82633A654328",
+    "numerRejestracyjny": "WO35017",
+    "marka": "Triumph",
+    "model": "Street Triple",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2020,
+    "typ": "Motor",
+    "pojemnoscSilnika": 765,
+    "kolor": "Pomarańczowy",
+    "przebieg": 12000,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-06-18",
+        "opis": "Sprawdzenie stanu zawieszenia",
+        "warsztat": "Triumph Moto"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Michał",
+        "nazwisko": "Wójcik",
+        "dataZakupu": "2020-04-15",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 23,
+    "vin": "7HGCM82633A654329",
+    "numerRejestracyjny": "EP70329",
+    "marka": "KTM",
+    "model": "1290 Super Duke",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2019,
+    "typ": "Samochód",
+    "pojemnoscSilnika": 1300,
+    "kolor": "Pomarańczowy",
+    "przebieg": 22000,
+    "historiaSerwisowa": [],
+    "wlasciciele": [
+      {
+        "imie": "Maciej",
+        "nazwisko": "Musiał",
+        "dataZakupu": "2016-01-20",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 24,
+    "vin": "1N4AL3AP8JC123789",
+    "numerRejestracyjny": "KA61240",
+    "marka": "Nissan",
+    "model": "Altima",
+    "rodzajPaliwa": "Benzyna",
+    "rokProdukcji": 2021,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 4,
+    "kolor": "Czerwony",
+    "przebieg": 25000,
+    "pojemnoscSilnika": 2500,
+    "historiaSerwisowa": [
+      {
+        "data": "2023-03-12",
+        "opis": "Przegląd techniczny",
+        "warsztat": "Nissan Service"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Monika",
+        "nazwisko": "Kowalska",
+        "dataZakupu": "2021-09-10",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 25,
+    "vin": "5YJ3E1EA1JF456123",
+    "numerRejestracyjny": "PK14087",
+    "marka": "Tesla",
+    "model": "Model 3",
+    "rodzajPaliwa": "Elektryczny",
+    "rokProdukcji": 2020,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 4,
+    "kolor": "Szary",
+    "przebieg": 30000,
+    "pojemnoscSilnika": 0,
+    "historiaSerwisowa": [
+      {
+        "data": "2022-01-10",
+        "opis": "Aktualizacja oprogramowania",
+        "warsztat": "Tesla Service Center"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Paweł",
+        "nazwisko": "Kowalski",
+        "dataZakupu": "2020-08-05",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 26,
+    "vin": "WAUZL64FX7N123456",
+    "numerRejestracyjny": "RS89213",
+    "marka": "Audi",
+    "model": "A4",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2017,
+    "typ": "Osobowy",
+    "liczbaDrzwi": 4,
+    "kolor": "Niebieski",
+    "przebieg": 80000,
+    "pojemnoscSilnika": 2000,
+    "historiaSerwisowa": [
+      {
+        "data": "2020-07-15",
+        "opis": "Wymiana rozrządu",
+        "warsztat": "AutoExpress"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Michał",
+        "nazwisko": "Zielinski",
+        "dataZakupu": "2017-11-10",
+        "dataSprzedazy": null
+      }
+    ],
+    "ubezpieczenie": []
+  },
+  {
+    "_id": 27,
+    "vin": "1HGCM82633A123456",
+    "numerRejestracyjny": "WY50124",
+    "marka": "Opel",
+    "model": "Corsa",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2000,
+    "typ": "Sedan",
+    "liczbaDrzwi": 3,
+    "kolor": "Czerwony",
+    "przebieg": 150000,
+    "pojemnoscSilnika": 1400,
+    "ubezpieczenie": []
+  },
+  {
+    "vin": "1HGCM82633A123456",
+    "numerRejestracyjny": "RZRNDM",
+    "marka": "BMW",
+    "model": "X5",
+    "rodzajPaliwa": "Diesel",
+    "rokProdukcji": 2010,
+    "typ": "Sedan",
+    "liczbaDrzwi": 5,
+    "kolor": "Czarny",
+    "przebieg": 10000,
+    "pojemnoscSilnika": 1800,
+    "_id": 28,
+    "ubezpieczenie": []
+  },
+  {
+    "numerRejestracyjny": "R2XDDD",
+    "vin": "32DGDS243DS",
+    "rokProdukcji": 2013,
+    "przebieg": 2000,
+    "rodzajPaliwa": "Diesel",
+    "marka": "Mercedes",
+    "model": "A-Class",
+    "typ": "Samochód",
+    "_id": 29,
+    "liczbaDrzwi": "3",
+    "kolor": "Zielony",
+    "pojemnoscSilnika": "1800",
+    "ubezpieczenie": []
+  },
+  {
+    "numerRejestracyjny": "R3AUTO",
+    "vin": "34DF66GD84GHHAE73",
+    "rokProdukcji": 2022,
+    "przebieg": 100000,
+    "rodzajPaliwa": "Hybrydowy",
+    "marka": "Toyota",
+    "model": "Yaris",
+    "typ": "Samochód",
+    "_id": 30,
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "123123",
+        "typUbezpieczenia": "123123",
+        "dataRozpoczecia": "0123-03-12",
+        "dataZakonczenia": "123123-12-12"
+      }
     ]
-},
-
-    {
-        "_id": 3,
-        "vin": "3HGCM82633A789012",
-        "marka": "Toyota",
-        "model": "Corolla",
-        "rodzajPaliwa": "Hybryda",
-        "rokProdukcji": 2018,
-        "typ": "Osobowy",
-        "liczbaDrzwi": 5,
-        "kolor": "Biały",
-        "przebieg": 60000,
-        "pojemnoscSilnika": 1800,
-        "historiaSerwisowa": [
-            {
-                "data": "2021-03-15",
-                "opis": "Wymiana filtrów",
-                "warsztat": "GreenCar Service"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Anna",
-                "nazwisko": "Wiśniewska",
-                "dataZakupu": "2018-06-20",
-                "dataSprzedazy": null
-            }
-        ]
-    },
-    {
-        "_id": 4,
-        "vin": "4HGCM82633A890123",
-        "marka": "Ford",
-        "model": "Focus",
-        "rodzajPaliwa": "Benzyna",
-        "rokProdukcji": 2012,
-        "typ": "Osobowy",
-        "liczbaDrzwi": 5,
-        "kolor": "Czarny",
-        "przebieg": 120000,
-        "pojemnoscSilnika": 1600,
-        "historiaSerwisowa": [
-            {
-                "data": "2020-10-10",
-                "opis": "Wymiana sprzęgła",
-                "warsztat": "AutoFix Center"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Tomasz",
-                "nazwisko": "Kozłowski",
-                "dataZakupu": "2015-02-14",
-                "dataSprzedazy": "2022-08-01"
-            },
-            {
-                "imie": "Paweł",
-                "nazwisko": "Zieliński",
-                "dataZakupu": "2022-08-15",
-                "dataSprzedazy": null
-            }
-        ]
-    },
-    {
-        "_id": 5,
-        "vin": "5HGCM82633A901234",
-        "marka": "BMW",
-        "model": "X5",
-        "rodzajPaliwa": "Diesel",
-        "rokProdukcji": 2019,
-        "typ": "SUV",
-        "liczbaDrzwi": 5,
-        "kolor": "Szary",
-        "przebieg": 45000,
-        "pojemnoscSilnika": 3000,
-        "historiaSerwisowa": [
-            {
-                "data": "2023-04-10",
-                "opis": "Serwis klimatyzacji",
-                "warsztat": "BMW Service Center"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Joanna",
-                "nazwisko": "Nowicka",
-                "dataZakupu": "2019-07-20",
-                "dataSprzedazy": null
-            }
-        ]
-    },
-    {
-        "_id": 6,
-        "vin": "6HGCM82633A012345",
-        "marka": "Kawasaki",
-        "model": "Ninja ZX-6R",
-        "rodzajPaliwa": "Benzyna",
-        "rokProdukcji": 2021,
-        "typ": "Motor",
-        "pojemnoscSilnika": 636,
-        "kolor": "Zielony",
-        "przebieg": 8000,
-        "historiaSerwisowa": [
-            {
-                "data": "2023-06-18",
-                "opis": "Wymiana opon",
-                "warsztat": "MotoStyle"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Karol",
-                "nazwisko": "Sobczak",
-                "dataZakupu": "2021-05-01",
-                "dataSprzedazy": null
-            }
-        ]
-    },
-    {
-        "_id": 7,
-        "vin": "7HGCM82633A567890",
-        "marka": "Mercedes",
-        "model": "Sprinter",
-        "rodzajPaliwa": "Diesel",
-        "rokProdukcji": 2016,
-        "typ": "Dostawczy",
-        "liczbaDrzwi": 4,
-        "kolor": "Srebrny",
-        "przebieg": 200000,
-        "pojemnoscSilnika": 2200,
-        "historiaSerwisowa": [
-            {
-                "data": "2022-12-05",
-                "opis": "Wymiana rozrządu",
-                "warsztat": "TruckService"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Grzegorz",
-                "nazwisko": "Kamiński",
-                "dataZakupu": "2016-09-12",
-                "dataSprzedazy": "2023-01-25"
-            },
-            {
-                "imie": "Łukasz",
-                "nazwisko": "Bartosz",
-                "dataZakupu": "2023-02-01",
-                "dataSprzedazy": null
-            }
-        ]
-    },
-    {
-        "_id": 8,
-        "vin": "8HGCM82633A678901",
-        "marka": "Audi",
-        "model": "A3",
-        "rodzajPaliwa": "Benzyna",
-        "rokProdukcji": 2020,
-        "typ": "Osobowy",
-        "liczbaDrzwi": 3,
-        "kolor": "Czerwony",
-        "przebieg": 30000,
-        "pojemnoscSilnika": 2000,
-        "historiaSerwisowa": [
-            {
-                "data": "2023-01-11",
-                "opis": "Wymiana klocków hamulcowych",
-                "warsztat": "Audi Center"
-            }
-        ],
-        "wlasciciele": [
-            {
-                "imie": "Ewa",
-                "nazwisko": "Górska",
-                "dataZakupu": "2020-03-20",
-                "dataSprzedazy": null
-            }
-        ]
-    }
+  },
+  {
+    "numerRejestracyjny": "LTM45022",
+    "vin": "2GDG534GFD22",
+    "rokProdukcji": "2007",
+    "przebieg": 270000,
+    "rodzajPaliwa": "Diesel",
+    "marka": "Suzuki",
+    "model": "SX4",
+    "typ": "Samochód",
+    "_id": 31,
+    "liczbaDrzwi": "5",
+    "kolor": "Czarny",
+    "pojemnoscSilnika": "1895",
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "AXA",
+        "typUbezpieczenia": "Polisa",
+        "dataRozpoczecia": "2003-02-12",
+        "dataZakonczenia": "2004-02-12"
+      }
+    ]
+  },
+  {
+    "numerRejestracyjny": "RST1234",
+    "vin": "resfd4123xdadx",
+    "rokProdukcji": 2023,
+    "przebieg": 10000,
+    "rodzajPaliwa": "Elektryczny",
+    "marka": "Audi",
+    "model": "A4",
+    "typ": "Samochód",
+    "historiaSerwisowa": [
+      {
+        "data": "2024-12-18",
+        "opis": "Wymiana oopon",
+        "warsztat": "Waki Taki"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Janusz",
+        "nazwisko": "Pywsko",
+        "dataZakupu": "2004-04-21",
+        "dataSprzedazy": ""
+      }
+    ],
+    "_id": 32,
+    "kolor": "Czarny",
+    "pojemnoscSilnika": "1900",
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "wEDF",
+        "typUbezpieczenia": "XFCVB",
+        "dataRozpoczecia": "",
+        "dataZakonczenia": ""
+      }
+    ]
+  },
+  {
+    "numerRejestracyjny": "RST12345",
+    "vin": "vindlapojazduezzz",
+    "rokProdukcji": 2022,
+    "przebieg": 140000,
+    "rodzajPaliwa": "Diesel",
+    "marka": "Volkswagen",
+    "model": "Scirocco",
+    "typ": "Samochód",
+    "historiaSerwisowa": [
+      {
+        "data": "3221-02-21",
+        "opis": "Wymiana szybki",
+        "warsztat": "AutoService Plus"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Ja",
+        "nazwisko": "jestem",
+        "dataZakupu": "1231-03-12",
+        "dataSprzedazy": "1223-03-12"
+      }
+    ],
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "SuperBezpieczneAutko",
+        "typUbezpieczenia": "OC/AC",
+        "dataRozpoczecia": "2025-02-04",
+        "dataZakonczenia": "2026-02-04"
+      }
+    ],
+    "_id": 34,
+    "liczbaDrzwi": "3",
+    "kolor": "Czarny",
+    "pojemnoscSilnika": "1396"
+  },
+  {
+    "numerRejestracyjny": "123asdasd",
+    "vin": "asdaddasd",
+    "rokProdukcji": 2024,
+    "przebieg": "123123",
+    "rodzajPaliwa": "Elektryczny",
+    "marka": "BMW",
+    "model": "X5",
+    "typ": "Hatchback",
+    "historiaSerwisowa": [],
+    "wlasciciele": [],
+    "ubezpieczenie": [],
+    "_id": 34
+  },
+  {
+    "numerRejestracyjny": "dssad",
+    "vin": "vindlapojazduezzzd",
+    "rokProdukcji": 2023,
+    "przebieg": "31231231",
+    "rodzajPaliwa": "Diesel",
+    "marka": "Volkswagen",
+    "model": "Passat",
+    "typ": "Hatchback",
+    "historiaSerwisowa": [],
+    "wlasciciele": [],
+    "ubezpieczenie": [],
+    "_id": 35
+  }
 ]

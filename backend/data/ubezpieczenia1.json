@@ -1,0 +1,218 @@
+[
+  {
+    "_id": 1,
+    "vin": "1HGCM82633A123456",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-03-01",
+    "dataZakonczenia": "2025-03-01"
+  },
+  {
+    "_id": 2,
+    "vin": "2HGCM82633A654321",
+    "firmaUbezpieczeniowa": "Allianz",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-07-01",
+    "dataZakonczenia": "2025-07-01"
+  },
+  {
+    "_id": 3,
+    "vin": "3HGCM82633A789012",
+    "firmaUbezpieczeniowa": "AXA",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-06-01",
+    "dataZakonczenia": "2025-06-01"
+  },
+  {
+    "_id": 4,
+    "vin": "4HGCM82633A890123",
+    "firmaUbezpieczeniowa": "Generali",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-02-15",
+    "dataZakonczenia": "2025-02-15"
+  },
+  {
+    "_id": 5,
+    "vin": "5HGCM82633A901234",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-07-20",
+    "dataZakonczenia": "2025-07-20"
+  },
+  {
+    "_id": 6,
+    "vin": "6HGCM82633A012345",
+    "firmaUbezpieczeniowa": "Warta",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-05-01",
+    "dataZakonczenia": "2025-05-01"
+  },
+  {
+    "_id": 7,
+    "vin": "7HGCM82633A567890",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-02-01",
+    "dataZakonczenia": "2025-02-01"
+  },
+  {
+    "_id": 8,
+    "vin": "8HGCM82633A678901",
+    "firmaUbezpieczeniowa": "Allianz",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-03-20",
+    "dataZakonczenia": "2025-03-20"
+  },
+  {
+    "_id": 9,
+    "vin": "1HGCM82633A678902",
+    "firmaUbezpieczeniowa": "Generali",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-06-10",
+    "dataZakonczenia": "2025-06-10"
+  },
+  {
+    "_id": 10,
+    "vin": "2HGCM82633A678903",
+    "firmaUbezpieczeniowa": "Warta",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-09-11",
+    "dataZakonczenia": "2025-09-11"
+  },
+  {
+    "_id": 11,
+    "vin": "3HGCM82633A678904",
+    "firmaUbezpieczeniowa": "Allianz",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-06-06",
+    "dataZakonczenia": "2025-06-06"
+  },
+  {
+    "_id": 12,
+    "vin": "4HGCM82633A678905",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-03-05",
+    "dataZakonczenia": "2025-03-05"
+  },
+  {
+    "_id": 13,
+    "vin": "5HGCM82633A678906",
+    "firmaUbezpieczeniowa": "AXA",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-07-21",
+    "dataZakonczenia": "2025-07-21"
+  },
+  {
+    "_id": 14,
+    "vin": "6HGCM82633A678907",
+    "firmaUbezpieczeniowa": "Generali",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-07-11",
+    "dataZakonczenia": "2025-07-11"
+  },
+  {
+    "_id": 15,
+    "vin": "7HGCM82633A678908",
+    "firmaUbezpieczeniowa": "Warta",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-08-01",
+    "dataZakonczenia": "2025-08-01"
+  },
+  {
+    "_id": 16,
+    "vin": "1HGCM82633A654322",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2023-06-01",
+    "dataZakonczenia": "2024-06-01"
+  },
+  {
+    "_id": 17,
+    "vin": "2HGCM82633A654323",
+    "firmaUbezpieczeniowa": "Allianz",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-01-01",
+    "dataZakonczenia": "2025-01-01"
+  },
+  {
+    "_id": 18,
+    "vin": "2HGCM82633A654324",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-02-01",
+    "dataZakonczenia": "2025-02-01"
+  },
+  {
+    "_id": 19,
+    "vin": "3HGCM82633A654325",
+    "firmaUbezpieczeniowa": "Warta",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-03-01",
+    "dataZakonczenia": "2025-03-01"
+  },
+  {
+    "_id": 20,
+    "vin": "4HGCM82633A654326",
+    "firmaUbezpieczeniowa": "Generali",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-04-01",
+    "dataZakonczenia": "2025-04-01"
+  },
+  {
+    "_id": 21,
+    "vin": "5HGCM82633A654327",
+    "firmaUbezpieczeniowa": "Compensa",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-05-01",
+    "dataZakonczenia": "2025-05-01"
+  },
+  {
+    "_id": 22,
+    "vin": "6HGCM82633A654328",
+    "firmaUbezpieczeniowa": "AXA",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-06-01",
+    "dataZakonczenia": "2025-06-01"
+  },
+  {
+    "_id": 23,
+    "vin": "7HGCM82633A654329",
+    "firmaUbezpieczeniowa": "Aviva",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-07-01",
+    "dataZakonczenia": "2025-07-01"
+  },
+  {
+    "_id": 24,
+    "vin": "1N4AL3AP8JC123789",
+    "firmaUbezpieczeniowa": "PZU",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-08-01",
+    "dataZakonczenia": "2025-08-01"
+  },
+  {
+    "_id": 25,
+    "vin": "5YJ3E1EA1JF456123",
+    "firmaUbezpieczeniowa": "Warta",
+    "typUbezpieczenia": "OC",
+    "dataRozpoczecia": "2024-09-01",
+    "dataZakonczenia": "2025-09-01"
+  },
+  {
+    "_id": 26,
+    "vin": "WAUZL64FX7N123456",
+    "firmaUbezpieczeniowa": "Generali",
+    "typUbezpieczenia": "AC",
+    "dataRozpoczecia": "2024-10-01",
+    "dataZakonczenia": "2025-10-01"
+  },
+  {
+    "_id": 27,
+    "vin": "volkwagenscirocco",
+    "typUbezpieczenia": "sc",
+    "dataRozpoczecia": "",
+    "dataZakonczenia": "",
+    "firmaUbezpieczeniowa": "sc"
+  }
+]

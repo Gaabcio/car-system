@@ -1,8 +1,8 @@
-// auth.js
 export const isAuthenticated = () => {
-    const token = localStorage.getItem('token');
-    if (!token) return false;
+    const token = localStorage.getItem('authToken');
+    return !!token; // Jeśli token istnieje, zwraca true
+};
 
-    // Możesz dodać dodatkowe sprawdzenie ważności tokena tutaj
-    return true;
+export const logout = () => {
+    localStorage.removeItem('authToken'); // Usuwamy token
 };

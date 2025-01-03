@@ -1,16 +1,72 @@
-[{
-    "_id": "1",
-    "vin": "1HGCM82633A123456",
-    "firmaUbezpieczeniowa": "PZU",
-    "typUbezpieczenia": "OC",
-    "dataRozpoczecia": "2023-03-01",
-    "dataZakonczenia": "2024-03-01"
-},
-{
-    "_id": "2",
-    "vin": "2HGCM82633A654321",
-    "firmaUbezpieczeniowa": "Allianz",
-    "typUbezpieczenia": "AC",
-    "dataRozpoczecia": "2022-07-01",
-    "dataZakonczenia": "2023-07-01"
-}]
+[
+  {
+    "nazwa": "PZU",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "Allianz",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "AXA",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "Generali",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "Warta",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "Compensa",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  },
+  {
+    "nazwa": "Aviva",
+    "rodzajubezpieczenia": [
+      "OC",
+      "AC",
+      "Polisa",
+      "NNW",
+      "Assistance"
+    ]
+  }
+]

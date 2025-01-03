@@ -55,6 +55,7 @@ const Login = () => {
                 localStorage.setItem('authToken', data.token)
                 console.log(data.message); // Logowanie udane
                 navigate('/dashboard'); // Przekierowanie do Dashboard.jsx
+                window.location.reload();
             })
             .catch(error => {
                 console.error(error.message); // Logowanie nieudane
@@ -121,7 +122,7 @@ const Login = () => {
         fetch('http://localhost:5000/api/send-message', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ mail: forgotEmail, message: 'test'}),
+            body: JSON.stringify({ mail: forgotEmail, message: 'test' }),
         })
             .then(response => {
                 if (response.ok) {

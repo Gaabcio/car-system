@@ -25,5 +25,12 @@
     "password": "haslo",
     "rola": "user",
     "name": "ksdksd"
+  },
+  {
+    "_id": 5,
+    "login": "test@test.pl",
+    "password": "test123",
+    "rola": "user",
+    "name": "test"
   }
 ]
