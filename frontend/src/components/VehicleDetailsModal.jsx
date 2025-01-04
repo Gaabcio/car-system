@@ -3,7 +3,9 @@ import "./VehicleDetailsModal.css";
 import ServiceHistoryModal from "./ServiceHistoryModal";
 import OwnersModal from "./OwnersModal";
 import InsuranceModal from "./InsuranceModal"; // Zaimportowanie komponentu ubezpieczenia
-
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import CustomAlert from './CustomAlert';
+import Alert from './Alert';
 
 const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
     const [formData, setFormData] = useState(vehicle);
@@ -11,7 +13,18 @@ const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
     const [showOwnersModal, setShowOwnersModal] = useState(false);
     const [showInsuranceModal, setShowInsuranceModal] = useState(false); // Dodanie stanu dla modalu ubezpieczenia
     const currentYear = new Date().getFullYear();
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showAlert, setShowAlert] = useState(false); // Stan do kontrolowania wyświetlania alertu
+    const [alertMessage, setAlertMessage] = useState(''); // Wiadomość do wyświetlenia w alercie
 
+    const [showAlert2, setShowAlert2] = useState(false); // Stan do kontrolowania wyświetlania alertu
+    const [alertMessage2, setAlertMessage2] = useState(''); // Wiadomość do wyświetlenia w alercie
+
+
+    // Funkcja do zamknięcia alertu
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -49,13 +62,25 @@ const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
             }
 
             console.log('Pojazd usunięty pomyślnie'); // Dodaj log
-            onClose(); // Zamknij modal po usunięciu pojazdu
-            window.location.reload(); // Odśwież stronę
+            setAlertMessage2('Pojazd został usunięty pomyślnie.');
+            setShowAlert2(true);
+
+            // Wywołaj funkcję aktualizującą dane w rodzicu
+            if (onUpdate) {
+                onUpdate(); // Odśwież listę pojazdów
+            }
+
+            // onClose(); // Zamknij modal po usunięciu pojazdu
+            setTimeout(() => {
+                onClose();
+            }, 1000); // Zamknij modal po 1 sekundach
         } catch (error) {
             console.error('Error:', error);
-            alert('Wystąpił błąd podczas usuwania pojazdu.');
+            setAlertMessage('Wystąpił błąd podczas usuwania pojazdu.');
+            setShowAlert(true); // Wyświetl alert
         }
     };
+
 
     const handleUpdate = async () => {
         try {
@@ -73,10 +98,18 @@ const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
 
             const updatedVehicle = await response.json();
             onUpdate(updatedVehicle); // Przekaż zaktualizowane dane do rodzica
-            onClose(); // Zamknij modal
+            setAlertMessage2('Dane pojazdu zostały zaktualizowane pomyślnie.');
+            setShowAlert2(true);
+
+            // Zamknij modal po 1 sekundach
+            setTimeout(() => {
+                onClose();
+            }, 1000);
+            // onClose(); // Zamknij modal
         } catch (error) {
             console.error('Error:', error);
-            alert('Wystąpił błąd podczas aktualizacji pojazdu.');
+            setAlertMessage('Wystąpił błąd podczas aktualizacji pojazdu.');
+            setShowAlert(true); // Wyświetl alert
         }
     };
 
@@ -214,7 +247,9 @@ const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
                 </div>
                 <div className="modal-buttons">
                     <button onClick={handleUpdate}>Zaktualizuj</button>
-                    <button onClick={handleDelete} className="cancel-button">Usuń pojazd</button>
+                    <button onClick={() => setShowDeleteModal(true)} className="cancel-button">
+                        Usuń pojazd
+                    </button>
                     <button onClick={onClose}>Zamknij</button>
                 </div>
             </div>
@@ -245,7 +280,13 @@ const VehicleDetailsModal = ({ vehicle, onClose, onUpdate }) => {
                     }
                 />
             )}
+            {showDeleteModal && (
+                <DeleteConfirmationModal vehicle={vehicle} onClose={() => setShowDeleteModal(false)} onDelete={handleDelete} />
+            )}
+            {/* Wyświetlenie alertu w przypadku błędu logowania */}
+            {showAlert && <CustomAlert message={alertMessage} onClose={handleCloseAlert} />}
 
+            {showAlert2 && <Alert message={alertMessage2} onClose={handleCloseAlert} />}
 
         </div>
     );

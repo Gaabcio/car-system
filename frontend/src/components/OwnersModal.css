@@ -321,3 +321,10 @@
         width: 0;
     }
 }
+
+.no-data {
+    text-align: center;
+    color: #6c757d;
+    font-size: 1rem;
+    margin-top: 20px;
+}

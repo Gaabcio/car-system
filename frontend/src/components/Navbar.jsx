@@ -51,7 +51,17 @@ const Navbar = () => {
         <header className={`navbar ${scrolled ? 'shrink' : ''}`}>
             <div className="logo">
                 <img src={logo} alt="Logo" className="logo-icon" />
-                <NavLink to="/" className="logo-text">System Zarządzania Pojazdami</NavLink>
+                <NavLink
+                    to="/"
+                    className="logo-text"
+                    onClick={(e) => {
+                        if (loggedIn) {
+                            e.preventDefault(); // Zatrzymuje domyślne przejście na stronę główną
+                        }
+                    }}
+                >
+                    System Zarządzania Pojazdami
+                </NavLink>
             </div>
             <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
                 <div className="bar"></div>
@@ -59,7 +69,7 @@ const Navbar = () => {
                 <div className="bar"></div>
             </div>
             <ul className={`navbar-navItems ${menuOpen ? 'active' : ''}`}>
-                {/* <li><NavLink to="/" exact activeClassName="active">STRONA GŁÓWNA</NavLink></li> */}
+                {!loggedIn && <li><NavLink to="/" exact activeClassName="active">STRONA GŁÓWNA</NavLink></li>}
                 {loggedIn ? (
                     <>
                         <li><NavLink to="/dashboard" activeClassName="active">DASHBOARD</NavLink></li>

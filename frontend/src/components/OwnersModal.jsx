@@ -47,7 +47,9 @@ const OwnersModal = ({ owners = [], onClose, onUpdate }) => {
                         </svg>
                     </div>
                 </div>
-                {ownersList.map((owner, index) => (
+                {ownersList.length === 0 ? (
+                    <p className="no-data">Brak danych</p>
+                ) : (ownersList.map((owner, index) => (
                     <div key={index} className="modal-form">
                         <label>
                             Imię:
@@ -96,7 +98,7 @@ const OwnersModal = ({ owners = [], onClose, onUpdate }) => {
                             Usuń
                         </button>
                     </div>
-                ))}
+                )))}
 
                 <div className="modal-buttons">
                     <button onClick={handleSaveAndClose}>Zapisz</button>

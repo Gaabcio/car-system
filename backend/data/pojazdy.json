@@ -55,7 +55,7 @@
     "model": "R1",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2015,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Niebieski",
     "przebieg": 30000,
@@ -180,7 +180,7 @@
     "model": "Ninja ZX-6R",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2021,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 636,
     "kolor": "Zielony",
     "przebieg": 8000,
@@ -485,7 +485,7 @@
     "model": "CBR1000RR",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2017,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Czarny",
     "przebieg": 25000,
@@ -514,7 +514,7 @@
     "model": "GSX-R1000",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2019,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Czerwony",
     "przebieg": 15000,
@@ -543,7 +543,7 @@
     "model": "Ninja ZX-10R",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2020,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Zielony",
     "przebieg": 5000,
@@ -572,7 +572,7 @@
     "model": "S1000RR",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2021,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Biały",
     "przebieg": 8000,
@@ -601,7 +601,7 @@
     "model": "Panigale V4",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2022,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1100,
     "kolor": "Szary",
     "przebieg": 3000,
@@ -630,7 +630,7 @@
     "model": "MT-10",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2018,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1000,
     "kolor": "Srebrny",
     "przebieg": 18000,
@@ -659,7 +659,7 @@
     "model": "Street Triple",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2020,
-    "typ": "Motor",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 765,
     "kolor": "Pomarańczowy",
     "przebieg": 12000,
@@ -688,7 +688,7 @@
     "model": "1290 Super Duke",
     "rodzajPaliwa": "Benzyna",
     "rokProdukcji": 2019,
-    "typ": "Samochód",
+    "typ": "Motocykl",
     "pojemnoscSilnika": 1300,
     "kolor": "Pomarańczowy",
     "przebieg": 22000,
@@ -701,7 +701,8 @@
         "dataSprzedazy": null
       }
     ],
-    "ubezpieczenie": []
+    "ubezpieczenie": [],
+    "liczbaDrzwi": null
   },
   {
     "_id": 24,
@@ -795,8 +796,8 @@
   },
   {
     "_id": 27,
-    "vin": "1HGCM82633A123456",
-    "numerRejestracyjny": "WY50124",
+    "vin": "1HGCM82633A100456",
+    "numerRejestracyjny": "WY00000",
     "marka": "Opel",
     "model": "Corsa",
     "rodzajPaliwa": "Diesel",
@@ -815,13 +816,20 @@
     "model": "X5",
     "rodzajPaliwa": "Diesel",
     "rokProdukcji": 2010,
-    "typ": "Sedan",
+    "typ": "Samochód",
     "liczbaDrzwi": 5,
     "kolor": "Czarny",
     "przebieg": 10000,
     "pojemnoscSilnika": 1800,
     "_id": 28,
-    "ubezpieczenie": []
+    "ubezpieczenie": [],
+    "historiaSerwisowa": [
+      {
+        "data": "2023-05-29",
+        "opis": "Wymiana rozrządu oraz filtru paliwa",
+        "warsztat": "BMW Service Center"
+      }
+    ]
   },
   {
     "numerRejestracyjny": "R2XDDD",
@@ -877,6 +885,26 @@
         "dataRozpoczecia": "2003-02-12",
         "dataZakonczenia": "2004-02-12"
       }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "Kacper",
+        "nazwisko": "Ligeza",
+        "dataZakupu": "2021-05-20",
+        "dataSprzedazy": ""
+      }
+    ],
+    "historiaSerwisowa": [
+      {
+        "data": "2024-09-26",
+        "opis": "Wymiana filtra paliwa",
+        "warsztat": "MotoExpert"
+      },
+      {
+        "data": "2024-12-13",
+        "opis": "Wymiana filtra powietrza",
+        "warsztat": "AutoService Plus"
+      }
     ]
   },
   {
@@ -916,6 +944,42 @@
     ]
   },
   {
+    "numerRejestracyjny": "RST3242",
+    "vin": "volkwagenscirocco",
+    "rokProdukcji": "2017",
+    "przebieg": 120000,
+    "rodzajPaliwa": "Diesel",
+    "marka": "Volkswagen",
+    "model": "Scirocco",
+    "typ": "Samochód",
+    "historiaSerwisowa": [
+      {
+        "data": "",
+        "opis": "Wymiana szybki",
+        "warsztat": "MotoFix"
+      }
+    ],
+    "wlasciciele": [
+      {
+        "imie": "ktos",
+        "nazwisko": "",
+        "dataZakupu": "",
+        "dataSprzedazy": ""
+      }
+    ],
+    "_id": 33,
+    "ubezpieczenie": [
+      {
+        "firmaUbezpieczeniowa": "AXA",
+        "typUbezpieczenia": "Polisa",
+        "dataRozpoczecia": "2003-02-12",
+        "dataZakonczenia": "2004-02-12"
+      }
+    ],
+    "pojemnoscSilnika": "3",
+    "kolor": "Czarno-pomarańczowy"
+  },
+  {
     "numerRejestracyjny": "RST12345",
     "vin": "vindlapojazduezzz",
     "rokProdukcji": 2022,
@@ -951,33 +1015,5 @@
     "liczbaDrzwi": "3",
     "kolor": "Czarny",
     "pojemnoscSilnika": "1396"
-  },
-  {
-    "numerRejestracyjny": "123asdasd",
-    "vin": "asdaddasd",
-    "rokProdukcji": 2024,
-    "przebieg": "123123",
-    "rodzajPaliwa": "Elektryczny",
-    "marka": "BMW",
-    "model": "X5",
-    "typ": "Hatchback",
-    "historiaSerwisowa": [],
-    "wlasciciele": [],
-    "ubezpieczenie": [],
-    "_id": 34
-  },
-  {
-    "numerRejestracyjny": "dssad",
-    "vin": "vindlapojazduezzzd",
-    "rokProdukcji": 2023,
-    "przebieg": "31231231",
-    "rodzajPaliwa": "Diesel",
-    "marka": "Volkswagen",
-    "model": "Passat",
-    "typ": "Hatchback",
-    "historiaSerwisowa": [],
-    "wlasciciele": [],
-    "ubezpieczenie": [],
-    "_id": 35
   }
 ]

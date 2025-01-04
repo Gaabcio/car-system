@@ -17,10 +17,12 @@
 
 .steps-cards {
     display: flex;
-    justify-content: center; /* Centrowanie bloków */
+    justify-content: center;
+    /* Centrowanie bloków */
     align-items: center;
     flex-wrap: wrap;
-    gap: 30px; /* Odstęp między blokami */
+    gap: 30px;
+    /* Odstęp między blokami */
     max-width: 1200px;
     margin: 0 auto 100px;
 }
@@ -44,7 +46,7 @@
 
 .icon-wrapper ion-icon {
     font-size: 40px;
-    color: #5b50f2;
+    color: #17a2b8 !important;
 }
 
 
@@ -57,11 +59,13 @@
 /* Strzały między krokami */
 .arrow {
     font-size: 40px;
-    color: #5b50f2;
+    color: #17a2b8 !important;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centrowanie strzał */
-    flex-basis: 50px; /* Minimalna szerokość dla symetrycznego układu */
+    justify-content: center;
+    /* Centrowanie strzał */
+    flex-basis: 50px;
+    /* Minimalna szerokość dla symetrycznego układu */
 }
 
 /* Responsywność */
@@ -71,22 +75,27 @@
     }
 
     .arrow {
-        font-size: 30px; /* Zmniejszenie strzał dla mniejszych ekranów */
+        font-size: 30px;
+        /* Zmniejszenie strzał dla mniejszych ekranów */
     }
 }
 
 @media (max-width: 768px) {
     .steps-cards {
-        flex-direction: row; /* Ustawienie pionowe bloków */
-        align-items: center;   /* Centrowanie */
+        flex-direction: row;
+        /* Ustawienie pionowe bloków */
+        align-items: center;
+        /* Centrowanie */
         gap: 20px;
     }
 
     .step-card {
-        width: 200px; /* Dopasowanie szerokości do ekranu */
+        width: 200px;
+        /* Dopasowanie szerokości do ekranu */
     }
 
     .arrow {
-        display: none; /* Ukrycie strzał na małych ekranach */
+        display: none;
+        /* Ukrycie strzał na małych ekranach */
     }
 }

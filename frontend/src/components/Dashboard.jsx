@@ -245,7 +245,7 @@ const Dashboard = () => {
     const typNormalized = (pojazd.typ || "").toLowerCase(); // Normalizuj do małych liter
     return {
       ...pojazd,
-      typ: typNormalized === "motor" ? "Motocykl" : "Samochód",
+      typ: typNormalized === "motocykl" ? "Motocykl" : "Samochód",
     };
   });
 
@@ -773,7 +773,7 @@ const Dashboard = () => {
                 { value: "Hatchback", label: "Hatchback" },
                 { value: "SUV", label: "SUV" },
                 { value: "Coupe", label: "Coupe" },
-                { value: "Motor", label: "Motor" },
+                { value: "Motocykl", label: "Motocykl" },
               ]}
               placeholder="Typ nadwozia"
               isClearable
@@ -910,6 +910,14 @@ const Dashboard = () => {
             onUpdate={handleUpdateVehicle}
           />
         )}
+        {selectedVehicle && (
+          <VehicleDetailsModal
+            vehicle={selectedVehicle}
+            onClose={handleCloseDetails}
+            onUpdate={fetchVehicles} // Przekaż funkcję aktualizacji
+          />
+        )}
+
 
 
 

@@ -5,6 +5,9 @@ import './AddVehicleForm.css';
 import ServiceHistoryModal from './ServiceHistoryModal';
 import OwnersModal from './OwnersModal';
 import InsuranceModal from './InsuranceModal';
+import CustomAlert from './CustomAlert';
+import Alert from './Alert';
+
 
 
 const customSelectStyles = {
@@ -62,6 +65,7 @@ const bodyTypeOptions = [
     { value: 'SUV', label: 'SUV' },
     { value: 'Kombi', label: 'Kombi' },
     { value: 'Kabriolet', label: 'Kabriolet' },
+    { value: 'Motocykl', label: 'Motocykl' },
 ];
 
 const makeOptions = [
@@ -175,8 +179,20 @@ const AddVehicleForm = ({ onVehicleAdded, onClose }) => {
         }
     };
 
+    const [showAlert2, setShowAlert2] = useState(false); // Stan do kontrolowania wyświetlania alertu
+    const [alertMessage2, setAlertMessage2] = useState(''); // Wiadomość do wyświetlenia w alercie
+
+
+    // Funkcja do zamknięcia alertu
+    const handleCloseAlert = () => {
+        setShowAlert2(false);
+    };
+
+    const [errorMessage, setErrorMessage] = useState('');
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Sprawdzenie, czy wszystkie pola zostały wypełnione
         if (
             !vehicleData.marka ||
             !vehicleData.model ||
@@ -187,7 +203,7 @@ const AddVehicleForm = ({ onVehicleAdded, onClose }) => {
             !vehicleData.numerRejestracyjny ||
             !vehicleData.vin
         ) {
-            alert('Proszę wypełnić wszystkie pola.');
+            setErrorMessage('Proszę wypełnić wszystkie pola.');
             return;
         }
 
@@ -212,12 +228,20 @@ const AddVehicleForm = ({ onVehicleAdded, onClose }) => {
                 onVehicleAdded(); // Wywołanie funkcji odświeżającej dane w Dashboard
             }
 
-            onClose(); // Zamknięcie modalu po dodaniu pojazdu
+            // onClose(); // Zamknięcie modalu po dodaniu pojazdu
+            setAlertMessage2('Pojazd został dodany pomyślnie.');
+            setShowAlert2(true);
+
+            // Zamknij modal po 1 sekundach
+            setTimeout(() => {
+                onClose();
+            }, 1000);
         } catch (error) {
             console.error('Error:', error);
-            alert(error.message);
+            setErrorMessage('Pojazd o podanym numerze VIN już istnieje w bazie.');
         }
     };
+
 
 
     const handleResetForm = () => {
@@ -448,6 +472,13 @@ const AddVehicleForm = ({ onVehicleAdded, onClose }) => {
                         <button type="submit" className="submit-btn">Dodaj pojazd</button>
                     </div>
                 </form>
+                {errorMessage && (
+                    <CustomAlert
+                        message={errorMessage}
+                        onClose={() => setErrorMessage('')}
+                    />
+                )}
+                {showAlert2 && <Alert message={alertMessage2} onClose={handleCloseAlert} />}
             </div>
 
             {showServiceHistoryModal && (

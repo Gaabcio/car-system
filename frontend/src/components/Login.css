@@ -1,245 +1,246 @@
 .background-container {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-image: url('nissan.jpg');
-    background-size: cover; 
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 0;
-    padding-top: 80px;
-    padding-bottom: 50px;
-  }
-  
-
-  .wrapper {
-    position: relative;
-    width: 400px;
-    height: 480px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 20px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
-    margin-top: 190px;
-    margin-bottom: 100px;
-    z-index: 1;
-  }
-  
-  .wrapper.active {
-    height: 550px;
-  }
-  
-  .form-box {
-    width: 100%;
-    padding: 40px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .form-box.show {
-    opacity: 1;
-    pointer-events: all;
-  }
-  
-  .form-box.hidden {
-    display: none;
-  }
-  
-  .form-box h2 {
-    font-size: 2em;
-    color: #f39c12;
-    text-align: center;
-  }
-  
-  .input-box {
-    position: relative;
-    width: 100%;
-    height: 50px;
-    border-bottom: 2px solid #f39c12;
-    margin: 30px 0;
-  }
-  
-  .input-box label {
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    transform: translateY(-50%);
-    color: #f39c12;
-    font-weight: 500;
-    pointer-events: none;
-    transition: 0.5s;
-  }
-  
-  .input-box input:not(:placeholder-shown) ~ label,
-  .input-box input:focus ~ label,
-  .input-box input:valid ~ label {
-    top: -5px;
-  }
-  
-  .input-box input {
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 1em;
-    color: #f39c12;
-    font-weight: 600;
-    padding: 0 35px 0 5px;
-  }
-  
-  .input-box .icon {
-    position: absolute;
-    right: 8px;
-    font-size: 1.2em;
-    color: #f39c12;
-    line-height: 57px;
-  }
-  
-  .remember-forgot {
-    font-size: 0.9em;
-    color: #f39c12;
-    font-weight: 500;
-    margin: -15px 0 15px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .remember-forgot label input {
-    accent-color: #f39c12;
-    margin-right: 3px;
-  }
-  
-  .remember-forgot a {
-    color: #f39c12;
-    text-decoration: none;
-  }
-  
-  .remember-forgot a:hover {
-    text-decoration: underline;
-  }
-  
-  .btn {
-    width: 100%;
-    height: 45px;
-    background-color: #f39c12;
-    border: none;
-    outline: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1em;
-    color: #fff;
-    font-weight: 500;
-  }
-  
-  .btn:hover {
-    color: #000;
-    font-weight: bold;
-    background-color: #df8900;
-  }
-  
-  .login-register {
-    font-size: 1em;
-    color: #f39c12;
-    text-align: center;
-    font-weight: 500;
-    margin: 25px 0 10px;
-  }
-  
-  .login-register p a {
-    color: #f39c12;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .login-register p a:hover {
-    text-decoration: underline;
-  }
-  
-  footer {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url('nissan.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
 
 
-  .wrapper.forgot-active {
-    height: 400px;
-    transition: height 0.5s ease-in-out;
+.wrapper {
+  position: relative;
+  width: 400px;
+  height: 480px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(30px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: height 0.5s ease-in-out, width 0.5s ease-in-out;
+  margin-top: 190px;
+  margin-bottom: 100px;
+  z-index: 1;
+}
+
+.wrapper.active {
+  height: 550px;
+}
+
+.form-box {
+  width: 100%;
+  padding: 40px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.form-box.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.form-box.hidden {
+  display: none;
+}
+
+.form-box h2 {
+  font-size: 2em;
+  color: #ffffff;
+  text-align: center;
+}
+
+.input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  border-bottom: 2px solid #ffffff;
+  margin: 30px 0;
+}
+
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-weight: 500;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:not(:placeholder-shown)~label,
+.input-box input:focus~label,
+.input-box input:valid~label {
+  top: -5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0 35px 0 5px;
+}
+
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  font-size: 1.2em;
+  color: #ffffff;
+  line-height: 57px;
+}
+
+.remember-forgot {
+  font-size: 0.9em;
+  color: #ffffff;
+  font-weight: 500;
+  margin: -15px 0 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.remember-forgot label input {
+  accent-color: #ffffff;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  height: 45px;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #000000;
+  font-weight: 500;
+  font-weight: bold;
+}
+
+.btn:hover {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #000000;
+}
+
+.login-register {
+  font-size: 1.1em;
+  color: #000000;
+  text-align: center;
+  font-weight: 500;
+  margin: 25px 0 10px;
+}
+
+.login-register p a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-register p a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+
+
+.wrapper.forgot-active {
+  height: 400px;
+  transition: height 0.5s ease-in-out;
+}
+
+.wrapper.email-sent-active {
+  height: 350px;
+  transition: height 0.5s ease-in-out;
+}
+
+.reset-message {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.reset-message p {
+  margin-top: 30px;
+  font-size: 1.1em;
+}
+
+.reset-message a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.reset-message a:hover {
+  text-decoration: underline;
+}
+
+.reset-message strong {
+  color: white;
+}
+
+.back-to-login {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.back-to-login a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back-to-login a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 1366px) {
+  .background-container {
+    height: 140vh;
   }
-  
-  .wrapper.email-sent-active {
-    height: 350px;
-    transition: height 0.5s ease-in-out;
-  }
-  
-  .reset-message {
-    text-align: center;
-    color: #f39c12;
-    margin-top: 20px;
-  }
-  
-  .reset-message p {
-    margin-top: 30px;
-    font-size: 1.1em;
+}
+
+@media (max-width: 480px) {
+  .background-container {
+    height: 160vh;
   }
 
-  .reset-message a {
-    color: #f39c12;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .reset-message a:hover {
-    text-decoration: underline;
-  }
-  
-  .reset-message strong{
-    color: white;
-  }
-
-  .back-to-login {
-    margin-top: 15px;
-    text-align: center;
-  }
-  
-  .back-to-login a {
-    color: #f39c12;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  
-  .back-to-login a:hover {
-    text-decoration: underline;
-  }
-  
-  
-  @media (max-width: 1366px){
-    .background-container{
-      height: 140vh;
-    }
-  }
-
-  @media (max-width: 480px){
-    .background-container{
-      height: 160vh;
-    }
-    
-  }
+}

@@ -1,8 +1,8 @@
 export const isAuthenticated = () => {
-    const token = localStorage.getItem('authToken');
+    const token = sessionStorage.getItem('authToken');
     return !!token; // Jeśli token istnieje, zwraca true
 };
 
 export const logout = () => {
-    localStorage.removeItem('authToken'); // Usuwamy token
+    sessionStorage.removeItem('authToken'); // Usuwamy token
 };

@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-
+import CustomAlert from './CustomAlert';
+import Alert from './Alert';
 
 const Login = () => {
 
 
 
+    const [showAlert2, setShowAlert2] = useState(false); // Stan do kontrolowania wyświetlania alertu
+    const [alertMessage2, setAlertMessage2] = useState(''); // Wiadomość do wyświetlenia w alercie
+
     const [formState, setFormState] = useState('login'); // Stan dla widoków formularza
     const [loginEmail, setLoginEmail] = useState(localStorage.getItem('loginEmail') || '');
-    const [loginPassword, setLoginPassword] = useState('');
+    const [loginPassword, setLoginPassword] = useState(localStorage.getItem('loginPassword') || ''); // Zapamiętanie hasła
     const [rememberMe, setRememberMe] = useState(localStorage.getItem('rememberMe') === 'true');
     const [registerName, setRegisterName] = useState('');
     const [registerEmail, setRegisterEmail] = useState('');
@@ -18,6 +22,8 @@ const Login = () => {
     const [forgotEmail, setForgotEmail] = useState('');
     //const [MessageEmail, setMessageEmail] = useState(''); // Nowy stan dla adresu email do wysłania wiadomości
     const [resetEmailSent, setResetEmailSent] = useState(false);
+    const [showAlert, setShowAlert] = useState(false); // Stan do kontrolowania wyświetlania alertu
+    const [alertMessage, setAlertMessage] = useState(''); // Wiadomość do wyświetlenia w alercie
     const navigate = useNavigate(); // Hook do nawigacji
 
     const switchToLogin = () => {
@@ -52,20 +58,25 @@ const Login = () => {
                 throw new Error('Invalid credentials');
             })
             .then(data => {
-                localStorage.setItem('authToken', data.token)
+                sessionStorage.setItem('authToken', data.token)
                 console.log(data.message); // Logowanie udane
                 navigate('/dashboard'); // Przekierowanie do Dashboard.jsx
                 window.location.reload();
             })
             .catch(error => {
                 console.error(error.message); // Logowanie nieudane
+                setAlertMessage('Niepoprawny adres e-mail lub hasło. Spróbuj ponownie.');
+                setShowAlert(true); // Wyświetl alert
             });
         if (rememberMe) {
             localStorage.setItem('loginEmail', loginEmail);
+            localStorage.setItem('loginPassword', loginPassword);
         } else {
             localStorage.removeItem('loginEmail');
+            localStorage.removeItem('loginPassword'); // Usuń hasło
         }
         localStorage.setItem('rememberMe', rememberMe);
+
         console.log('Logowanie...');
     };
 
@@ -105,13 +116,15 @@ const Login = () => {
             })
             .then(data => {
                 console.log(data.message); // Rejestracja udana
-                alert("Rejestracja zakończona sukcesem!");
+                setAlertMessage2("Rejestracja zakończona sukcesem!");
+                setShowAlert2(true); // Wyświetl alert sukcesu
                 setRegisterError(''); // Wyczyszczenie błędu
                 switchToLogin(); // Przekierowanie do formularza logowania
             })
             .catch(error => {
                 console.error(error.message); // Wyświetl błąd w konsoli
-                setRegisterError(error.message); // Ustawienie komunikatu błędu
+                setAlertMessage(error.message); // Ustawienie komunikatu błędu w alercie
+                setShowAlert(true); // Wyświetl alert błędu
             });
     };
 
@@ -132,17 +145,25 @@ const Login = () => {
             })
             .then(data => {
                 console.log(data.message);
-                alert("Wiadomość wysłana pomyślnie!");
-                //setMessageEmail('');
-                switchToLogin();
+                setAlertMessage2("Wiadomość wysłana pomyślnie!");
+                setShowAlert2(true); // Wyświetl alert sukcesu
+                // Ukrycie alertu po 1 sekundzie
+                setTimeout(() => {
+                    setShowAlert2(false);
+                    switchToLogin(); // Przełącz na widok logowania
+                }, 1000);
             })
             .catch(error => {
                 console.error(error.message);
-                alert("Błąd podczas wysyłania wiadomości");
+                setAlertMessage("Błąd podczas wysyłania wiadomości.");
+                setShowAlert(true); // Wyświetl alert błędu
             });
     };
 
-
+    // Funkcja do zamknięcia alertu
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
 
     return (
         <div className="login-container">
@@ -276,6 +297,11 @@ const Login = () => {
                     )}
                 </div>
             </div>
+            {/* Wyświetlenie alertu w przypadku błędu logowania */}
+            {showAlert && <CustomAlert message={alertMessage} onClose={handleCloseAlert} />}
+            {showAlert2 && <Alert message={alertMessage2} onClose={handleCloseAlert} />}
+
+
         </div>
     );
 };

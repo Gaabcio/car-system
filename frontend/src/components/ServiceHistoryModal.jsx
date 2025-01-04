@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./VehicleDetailsModal.css";
 import CreatableSelect from "react-select/creatable";
+import warsztatyData from "../data/warsztaty.json";
 
 const customSelectStyles = {
     control: (base) => ({
@@ -63,6 +64,10 @@ const ServiceHistoryModal = ({ history = [], onClose, onUpdate }) => {
         ]);
     };
 
+    const findWorkshopDetails = (workshopName) => {
+        return warsztatyData.find(workshop => workshop.nazwa === workshopName);
+    };
+
     const handleChange = (index, field, value) => {
         const updatedHistory = [...serviceHistory];
         updatedHistory[index][field] = value;
@@ -80,6 +85,7 @@ const ServiceHistoryModal = ({ history = [], onClose, onUpdate }) => {
     };
 
     return (
+        
         <div className="modal-overlay">
             <div className="modal-content">
                 <div className="modal-header">
@@ -99,52 +105,69 @@ const ServiceHistoryModal = ({ history = [], onClose, onUpdate }) => {
                         </svg>
                     </div>
                 </div>
-                {serviceHistory.map((record, index) => (
-                    <div key={index} className="modal-form">
-                        <label>
-                            Data:
-                            <input
-                                type="date"
-                                value={record.data}
-                                onChange={(e) =>
-                                    handleChange(index, "data", e.target.value)
-                                }
-                            />
-                        </label>
-                        <label>
-                            Opis:
-                            <input
-                                type="text"
-                                value={record.opis}
-                                onChange={(e) =>
-                                    handleChange(index, "opis", e.target.value)
-                                }
-                            />
-                        </label>
+                {serviceHistory.length === 0 ? (
+                    <p className="no-data">Brak danych</p>
+                ) : (serviceHistory.map((record, index) => {
+                    const selectedWorkshop = findWorkshopDetails(record.warsztat);
 
-                        <label>
-                            <CreatableSelect
-                                value={record.warsztat ? { value: record.warsztat, label: record.warsztat } : null}
-                                onChange={(newValue) => handleChange(index, "warsztat", newValue ? newValue.label : '')}
-                                options={workshopOptions.map(workshop => ({ value: workshop.nazwa, label: workshop.nazwa }))}
-                                onCreateOption={(inputValue) => handleChange(index, "warsztat", inputValue)}
-                                placeholder="Wybierz lub dodaj warsztat"
-                                isClearable
-                                styles={customSelectStyles}
-                                formatCreateLabel={(inputValue) => ''}
-                                required
-                            />
+                    return (
+                        <div key={index} className="modal-form">
+                            <label>
+                                Data:
+                                <input
+                                    type="date"
+                                    value={record.data}
+                                    onChange={(e) =>
+                                        handleChange(index, "data", e.target.value)
+                                    }
+                                />
+                            </label>
 
-                        </label>
-                        <br />
-                        <button
-                            className="remove-button"
-                            onClick={() => handleRemoveRecord(index)}
-                        >
-                            Usuń
-                        </button>
-                    </div>
-                ))}
+                            <label>
+                                <CreatableSelect
+                                    value={record.warsztat ? { value: record.warsztat, label: record.warsztat } : null}
+                                    onChange={(newValue) => handleChange(index, "warsztat", newValue ? newValue.label : '')}
+                                    options={workshopOptions.map(workshop => ({ value: workshop.nazwa, label: workshop.nazwa }))}
+                                    onCreateOption={(inputValue) => handleChange(index, "warsztat", inputValue)}
+                                    placeholder="Wybierz lub dodaj warsztat"
+                                    isClearable
+                                    styles={customSelectStyles}
+                                    formatCreateLabel={(inputValue) => ''}
+                                    required
+                                />
+                            </label>
+
+                            <label>
+                                Opis:
+                                <textarea
+                                    value={record.opis}
+                                    onChange={(e) =>
+                                        handleChange(index, "opis", e.target.value)
+                                    }
+                                />
+                            </label>
+
+                            <label>
+                                {selectedWorkshop && (
+                                <div className="workshop-details">
+                                    <h4>Dane wybranego warsztatu:</h4>
+                                    <p><strong>Ulica:</strong> {selectedWorkshop.adres.ulica}</p>
+                                    <p><strong>Miasto:</strong> {selectedWorkshop.adres.miasto}</p>
+                                    <p><strong>Kod pocztowy:</strong> {selectedWorkshop.adres.kodPocztowy}</p>
+                                    <p><strong>Telefon:</strong> {selectedWorkshop.telefon}</p>
+                                </div>
+                                )}
+                            </label>
+                            
+                            <button
+                                className="remove-button"
+                                onClick={() => handleRemoveRecord(index)}
+                            >
+                                Usuń
+                            </button>
+                        </div>
+                    );
+                }))}
 
                 <div className="modal-buttons">
                     <button onClick={handleSaveAndClose}>Zapisz</button>

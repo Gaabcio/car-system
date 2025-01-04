@@ -101,7 +101,9 @@ const InsuranceModal = ({ insurance = [], onClose, onUpdate }) => {
                         </svg>
                     </div>
                 </div>
-                {insuranceData.map((record, index) => (
+                {insuranceData.length === 0 ? (
+                    <p className="no-data">Brak danych</p>
+                ) : (insuranceData.map((record, index) => (
                     <div key={index} className="modal-form">
                         <label>
                             Firma Ubezpieczeniowa:
@@ -159,7 +161,7 @@ const InsuranceModal = ({ insurance = [], onClose, onUpdate }) => {
                             Usuń
                         </button>
                     </div>
-                ))}
+                )))}
 
                 <div className="modal-buttons">
                     <button onClick={handleSaveAndClose}>Zapisz</button>

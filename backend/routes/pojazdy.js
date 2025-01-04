@@ -36,7 +36,7 @@ router.post('/pojazdy', (req, res) => {
 
     // Zapisz zaktualizowaną listę do pliku
     fs.writeFileSync(path.join(__dirname, '../data', 'pojazdy.json'), JSON.stringify(pojazdy, null, 2));
-    
+
     res.status(201).json(newVehicle); // Zwróć nowo dodany pojazd
 });
 
@@ -69,5 +69,8 @@ router.delete('/pojazdy/:id', (req, res) => {
     writeJSONFile(path.join(__dirname, '../data', 'pojazdy.json'), updatedPojazdy);
     res.status(200).json({ message: 'Pojazd usunięty pomyślnie' });
 });
+
+
+
 
 module.exports = router;
